@@ -3,16 +3,21 @@ require 'pry'
 
 require 'ruby_drills/version'
 require 'ruby_drills/cli'
+require 'ruby_drills/drill'
+
+require 'ruby_drills/enumerable/enumerable_drills'
 
 class RubyDrills
 
   def self.start
-    d = RubyDrills.new
-    puts "Here we go..."
+    RubyDrills.new
   end
 
   def initialize
     config_pry
+    enum_drills = EnumerableDrills.new
+    puts enum_drills.banner
+    enum_drills.start
   end
 
   def config_pry
