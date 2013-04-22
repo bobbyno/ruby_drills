@@ -22,11 +22,11 @@ For example, a drill for the `Enumerable#zip` method could consist of the follow
 
 ## Installation
 
-Ruby Drills are meant to be used as a standalone tool.
+Ruby Drills are meant to be used as a standalone tool from the command line:
 
     $ gem install ruby_drills
 
-And then execute:
+Run:
 
     $ ruby_drills
 

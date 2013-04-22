@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$0 = 'ruby_drills'
+
+begin
+  require 'ruby_drills'
+rescue LoadError
+  require 'rubygems'
+  require 'ruby_drills'
+end
+
+# Process command line options and run
+RubyDrills::CLI.parse_options

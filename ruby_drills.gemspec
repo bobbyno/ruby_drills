@@ -6,6 +6,7 @@ require 'ruby_drills/version'
 Gem::Specification.new do |gem|
   gem.name          = "ruby_drills"
   gem.version       = RubyDrills::VERSION
+
   gem.authors       = ["Bobby Norton"]
   gem.email         = ["bobby@testedminds.com"]
   gem.description   = %q{A deliberate practice tool for memorizing the core Ruby API's.}
