@@ -4,7 +4,7 @@ class ZipDrill < Drill
     @expected = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
   end
 
-  def run
+  def context
     a = [ 4, 5, 6 ]
     b = [ 7, 8, 9 ]
 
@@ -18,8 +18,8 @@ merge the corresponding elements from a and b to yield
 #{@expected.inspect}?
     }
 
-    prompt binding
-    grade
+    # Always return the binding from the context of your drill.
+    binding
   end
 
   def hint

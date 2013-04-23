@@ -17,6 +17,6 @@ and will make a Ruby class Enumerable.
 
   def start
     ZipDrill.new.run
-
+    puts "next drill starting now..."
   end
 end
