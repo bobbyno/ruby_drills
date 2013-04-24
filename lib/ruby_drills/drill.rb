@@ -2,16 +2,12 @@ class Drill
   attr_accessor :description
 
   def start
-    context_binding = context
-    prompt(context_binding)
+    show
+    self.pry(:quiet => true, :commands => commands)
   end
 
   def answer(ans=nil)
     grade(ans)
-  end
-
-  def show
-    puts @description
   end
 
   def skip
@@ -45,10 +41,6 @@ class Drill
     end
   end
 
-  def prompt(bind)
-    Pry.start(bind, :quiet => true, :commands => commands)
-  end
-
   def next_drill
       puts "Next isn't done yet..."
       # TODO: Call next_drill instead of exiting.
@@ -56,6 +48,12 @@ class Drill
   end
 
 private
+
+  def fail(message=nil)
+      puts "FAIL."
+      puts message unless message.nil?
+      hint
+  end
 
   def grade(answer)
     # Data TODO: User's session can be retrieved with the following:
@@ -69,12 +67,11 @@ private
       puts "WIN!!!"
       next_drill
     when 'skip'
-      puts "Better luck next time. Here's a hint for next time:"
+      puts "Better luck next time. Until then:"
       hint
       next_drill
     else
-      puts "FAIL."
-      hint
+      fail
     end
   end
 end
