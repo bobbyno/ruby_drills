@@ -32,15 +32,5 @@ class RubyDrills
           "[#{pry.input_array.size}] #{":#{nest_level}" unless nest_level.zero?}* "
         }
       ]
-
-    Pry::Commands.block_command "help", "Override Pry help" do
-      puts
-      puts "answer xxx  # then CTRL+D: Check results"
-      puts "skip: Move on to the next question"
-      puts "clear: Clear the screen"
-      puts "help: Show this message"
-      puts "quit: End your session"
-      puts
-    end
   end
 end

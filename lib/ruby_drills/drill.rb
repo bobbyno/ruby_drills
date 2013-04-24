@@ -1,61 +1,80 @@
 class Drill
-  attr_accessor :expected, :hint
+  attr_accessor :description
 
-  def initialize
-
-  end
-
-  def run
+  def start
     context_binding = context
     prompt(context_binding)
-    # grade
   end
 
-  def prompt(b)
-    Pry.start(b, :quiet => true)
+  def answer(ans=nil)
+    grade(ans)
+  end
+
+  def show
+    puts @description
   end
 
   def skip
     grade('skip')
   end
 
-  def clear
-    system('clear')
+  def commands
+    Pry::CommandSet.new do
+
+      command "list", "see the available drills" do
+        output.puts "TBD"
+      end
+
+      command "clear", "clear the screen" do
+        system('clear');
+      end
+
+      command "quit", "end your session" do
+        puts "Keep practicing!"
+        exit
+      end
+
+      command "help", "show this message" do
+        output.puts "\tanswer:\tsee if you're correct"
+        output.puts "\tshow:\tshow the problem description"
+        output.puts "\thint:\tget unstuck"
+        output.puts "\tskip:\tmove on to the next drill"
+        commands.each {|k,v| output.puts "\t#{k}:\t#{v.description}"}
+      end
+
+    end
   end
 
-  def quit
-    grade('quit')
+  def prompt(bind)
+    Pry.start(bind, :quiet => true, :commands => commands)
   end
 
-  # How about just having a check method that let's you pass in an expression and see if it matches?
-  def answer(ans)
-    grade(ans)
+  def next_drill
+      puts "Next isn't done yet..."
+      # TODO: Call next_drill instead of exiting.
+      exit
   end
 
 private
 
   def grade(answer)
-    # User's session can be retrieved with the following:
+    # Data TODO: User's session can be retrieved with the following:
     # code = Pry::Code.from_file('(pry)')
     # lines = code.to_s.split('\n')
 
     case answer
     when nil
-      clear
       puts "Did you forget to answer the question?"
-    when @expected
-      puts "Nice one!"
-      # Resume here: Exit quits the whole program, not just the pry repl. How to do that?
-      exit
+    when expected
+      puts "WIN!!!"
+      next_drill
     when 'skip'
-      puts "Better luck next time."
-      exit
-    when 'quit'
-      puts "Bye for now."
-      exit
+      puts "Better luck next time. Here's a hint for next time:"
+      hint
+      next_drill
     else
-      clear
-      puts "Good try: The answer is #{@expected}, but you answered #{answer}."
+      puts "FAIL."
+      hint
     end
   end
 end
