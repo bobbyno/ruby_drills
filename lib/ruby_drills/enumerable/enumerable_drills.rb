@@ -1,3 +1,4 @@
+require 'ruby_drills/enumerable/take_while_drill'
 require 'ruby_drills/enumerable/zip_drill'
 
 class EnumerableDrills
@@ -16,6 +17,9 @@ and will make a Ruby class Enumerable.
   end
 
   def start
-    ZipDrill.new.start
+    t = TakeWhile.new
+    z = ZipDrill.new
+    t.add(z)
+    t.start
   end
 end

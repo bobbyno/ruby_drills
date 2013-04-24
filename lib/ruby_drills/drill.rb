@@ -1,5 +1,9 @@
 class Drill
-  attr_accessor :description
+  attr_accessor :description, :out
+
+  def add(drill=nil)
+    @out = drill
+  end
 
   def start
     show
@@ -42,9 +46,8 @@ class Drill
   end
 
   def next_drill
-      puts "Next isn't done yet..."
-      # TODO: Call next_drill instead of exiting.
-      exit
+      exit if @out.nil?
+      out.start
   end
 
 private
