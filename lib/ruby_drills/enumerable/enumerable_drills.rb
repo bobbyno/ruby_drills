@@ -18,8 +18,12 @@ and will make a Ruby class Enumerable.
   end
 
   def start
-    a = AllNamesDrill.new
-    a.add(AllDrill.new)
+    # Resume here: Do sort and reduce next before the Chunk drill so that people can have a hope
+    # of passing it.
+
+    a = ChunkDrill.new
+    a.add(AllNamesDrill.new)
+      .add(AllDrill.new)
       .add(ZipDrill.new)
       .add(TakeWhileDrill.new)
     a.start
