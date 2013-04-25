@@ -15,6 +15,10 @@ class Drill
     grade(ans)
   end
 
+  def expected
+    eval(reference)
+  end
+
   def skip
     grade('skip')
   end
@@ -37,7 +41,7 @@ class Drill
       end
 
       command "help", "show this message" do
-        output.puts "\tanswer [code]:\tcall with the code that answers the question to see if you're correct"
+        output.puts "\tanswer _:\twhen you think you have the right answer, call answer _ to check."
         output.puts "\tshow:\tshow the problem description"
         output.puts "\thint:\tget unstuck"
         output.puts "\tskip:\tmove on to the next drill"
@@ -57,8 +61,13 @@ private
   def fail(message=nil)
       puts "\tFAIL.".red
       puts message.red unless message.nil?
-      hint
       puts
+  end
+
+  def press_any
+      puts "\nPress any key to continue:"
+      gets.chomp
+      system('clear');
   end
 
   def grade(answer)
@@ -66,13 +75,20 @@ private
     # code = Pry::Code.from_file('(pry)')
     # lines = code.to_s.split('\n')
 
+    # line buffer will work if the user types answer _ to check their work.
+    # Pry.line_buffer[Pry.current_line-1]
+
     case answer
     when nil
       puts "Did you forget to answer the question?"
     when expected
       puts "\n\tWIN!!!\n".green
+      puts "How did your approach compare to this?"
+      puts reference
+      press_any
       next_drill
     when 'skip'
+      press_any
       next_drill
     else
       fail

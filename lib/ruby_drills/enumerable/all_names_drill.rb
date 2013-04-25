@@ -4,10 +4,6 @@ class AllNamesDrill < Drill
     @names = %w[ Al Slartibartfast Aaron Yvonne Bobby ]
   end
 
-  def expected
-    false
-  end
-
   def show
     puts %{
 @names = #{@names.inspect}
@@ -19,6 +15,10 @@ to the given block and returns true if the block never
 returns false or nil.
 
 }
+  end
+
+  def reference
+    "@names.all? {|n| n.size > 4}"
   end
 
   def hint

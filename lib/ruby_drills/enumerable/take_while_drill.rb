@@ -4,10 +4,6 @@ class TakeWhileDrill < Drill
     @a = [1, 2, 3, 4, 5, 0]
   end
 
-  def expected
-    [1, 2, 3]
-  end
-
   def show
     puts %{
 @a = #{@a.inspect}
@@ -16,6 +12,10 @@ Use the Enumerable method that passes elements to a block
 until the block returns nil or false, then stops iterating and
 returns an array of all prior elements to return #{expected.inspect}:
 }
+  end
+
+  def reference
+    "@a.take_while {|x| x < 4}"
   end
 
   def hint

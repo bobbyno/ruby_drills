@@ -3,10 +3,6 @@ class ChunkDrill < Drill
     @names = %w[ Al Slartibartfast Aaron Yvonne Bobby ]
   end
 
-  def expected
-    @names.sort.chunk {|n| n.ord}.reduce([]) {|acc, (char, lines)| acc << [char.chr, lines.size]}
-  end
-
   def show
     puts %{
 @names = #{@names.inspect}
@@ -23,10 +19,12 @@ of the successive elements to another Enumerable method.
 }
   end
 
+  def reference
+    "@names.sort.chunk {|n| n[0]}.reduce([]) {|acc, (char, lines)| acc << [char, lines.size]}"
+  end
+
   def hint
     puts "Remember, this method is especially useful for sorted series of elements."
-    puts "Tony.ord => #{'Tony'.ord}"
-    puts "84.chr => #{84.chr}"
     puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-chunk"
   end
 end

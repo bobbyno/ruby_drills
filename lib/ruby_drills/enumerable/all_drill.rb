@@ -4,17 +4,19 @@ class AllDrill < Drill
     @values = [ nil, true, 99 ]
   end
 
-  def expected
-    false
-  end
-
   def show
     puts %{
 @values = #{@values.inspect}
 
+Does this array contain values that are false or nil?
+
 Use the method that will return true only if none of the collection
-members are false or nil. Omit the block:
+members are false or nil. No block is necessary to answer this:
 }
+  end
+
+  def reference
+    "@values.all?"
   end
 
   def hint
