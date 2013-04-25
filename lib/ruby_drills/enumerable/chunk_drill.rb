@@ -11,15 +11,15 @@ class ChunkDrill < Drill
     puts %{
 @names = #{@names.inspect}
 
-Count words in @names starting with an initial letter.
+Count the words in @names by the first letter of each name
+to produce an array containing:
+#{expected}
 
 First sort this array, then use the method that splits self into
 multiple Enumerators using the rule given in the block. It
 then passes the result of the rule and an Enumerator
 of the successive elements to another Enumerable method.
 
-Iterate over this collection to produce an array containing:
-#{expected}
 }
   end
 

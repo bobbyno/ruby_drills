@@ -19,12 +19,13 @@ class Drill
     grade('skip')
   end
 
+  def fold
+    puts "\nKnow when to fold 'em...\n".yellow
+    grade('skip')
+  end
+
   def commands
     Pry::CommandSet.new do
-
-      command "list", "see the available drills" do
-        output.puts "TBD"
-      end
 
       command "clear", "clear the screen" do
         system('clear');
@@ -39,7 +40,7 @@ class Drill
         output.puts "\tanswer [code]:\tcall with the code that answers the question to see if you're correct"
         output.puts "\tshow:\tshow the problem description"
         output.puts "\thint:\tget unstuck"
-        output.puts "\tfold:\tknow when to fold 'em...and move on to the next drill"
+        output.puts "\tskip:\tmove on to the next drill"
         commands.each {|k,v| output.puts "\t#{k}:\t#{v.description}"}
       end
 
@@ -71,10 +72,7 @@ private
     when expected
       puts "\n\tWIN!!!\n".green
       next_drill
-    when 'fold'
-      puts "Know when to fold 'em..."
-      puts hint
-      puts
+    when 'skip'
       next_drill
     else
       fail

@@ -12,14 +12,17 @@ class AllNamesDrill < Drill
     puts %{
 @names = #{@names.inspect}
 
+Is each name longer than four characters?
+
 Use the method that passes each element of the collection
 to the given block and returns true if the block never
-returns false or nil to determine if the strings in @names
-are over size 4:
+returns false or nil.
+
 }
   end
 
   def hint
+    puts "Your answer will look something like @names.xxxxx {|x| yyy }"
     puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"
   end
 
