@@ -1,5 +1,6 @@
-require 'ruby_drills/enumerable/take_while_drill'
-require 'ruby_drills/enumerable/zip_drill'
+Dir['./lib/ruby_drills/enumerable/*drill.rb'].each do |f|
+  require f
+end
 
 class EnumerableDrills
 
@@ -17,9 +18,10 @@ and will make a Ruby class Enumerable.
   end
 
   def start
-    t = TakeWhile.new
-    z = ZipDrill.new
-    t.add(z)
-    t.start
+    a = AllNamesDrill.new
+    a.add(AllDrill.new)
+      .add(ZipDrill.new)
+      .add(TakeWhileDrill.new)
+    a.start
   end
 end

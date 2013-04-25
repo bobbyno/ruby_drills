@@ -1,5 +1,6 @@
 require 'slop'
 require 'pry'
+require 'colorize'
 
 require 'ruby_drills/version'
 require 'ruby_drills/cli'
@@ -26,10 +27,10 @@ class RubyDrills
 
     Pry.config.prompt = [
       proc { |target_self, nest_level, pry|
-        "[#{pry.input_array.size}] #{":#{nest_level}" unless nest_level.zero?}>> "
+        "#{":#{nest_level}" unless nest_level.zero?}>> "
         },
         proc { |target_self, nest_level, pry|
-          "[#{pry.input_array.size}] #{":#{nest_level}" unless nest_level.zero?}* "
+          "#{":#{nest_level}" unless nest_level.zero?}* "
         }
       ]
   end

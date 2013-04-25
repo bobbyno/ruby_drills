@@ -14,8 +14,8 @@ class ZipDrill < Drill
 @a: #{@a.inspect}
 @b: #{@b.inspect}
 
-Use the Enumerable method will take one element from a new array and
-merge the corresponding elements from a and b to return
+Use the Enumerable method that will take one element from a new
+array and merge the corresponding elements from a and b to return
 #{expected.inspect}:
     }
   end

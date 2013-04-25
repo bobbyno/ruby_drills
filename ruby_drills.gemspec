@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency('pry',  '0.9.12.1')
+  gem.add_dependency('colorize', '0.5.8')
 
   gem.add_development_dependency("rake", "10.0.4")
   gem.add_development_dependency("rspec", "2.13.0")

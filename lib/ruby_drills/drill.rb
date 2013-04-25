@@ -7,6 +7,7 @@ class Drill
 
   def start
     show
+    puts
     self.pry(:quiet => true, :commands => commands)
   end
 
@@ -35,10 +36,10 @@ class Drill
       end
 
       command "help", "show this message" do
-        output.puts "\tanswer:\tsee if you're correct"
+        output.puts "\tanswer [code]:\tcall with the code that answers the question to see if you're correct"
         output.puts "\tshow:\tshow the problem description"
         output.puts "\thint:\tget unstuck"
-        output.puts "\tskip:\tmove on to the next drill"
+        output.puts "\tfold:\tknow when to fold 'em...and move on to the next drill"
         commands.each {|k,v| output.puts "\t#{k}:\t#{v.description}"}
       end
 
@@ -53,9 +54,10 @@ class Drill
 private
 
   def fail(message=nil)
-      puts "FAIL."
-      puts message unless message.nil?
+      puts "\tFAIL.".red
+      puts message.red unless message.nil?
       hint
+      puts
   end
 
   def grade(answer)
@@ -67,11 +69,12 @@ private
     when nil
       puts "Did you forget to answer the question?"
     when expected
-      puts "WIN!!!"
+      puts "\n\tWIN!!!\n".green
       next_drill
-    when 'skip'
-      puts "Better luck next time. Until then:"
-      hint
+    when 'fold'
+      puts "Know when to fold 'em..."
+      puts hint
+      puts
       next_drill
     else
       fail
