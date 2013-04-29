@@ -21,9 +21,9 @@ returns false or nil.
     "@names.all? {|n| n.size > 4}"
   end
 
-  def hint
-    puts "Your answer will look something like @names.xxxxx {|x| yyy }"
-    puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"
+  def hints
+    ["Your answer will look something like @names.xxxxx {|x| yyy }",
+     "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
 end

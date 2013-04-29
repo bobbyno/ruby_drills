@@ -5,6 +5,10 @@ class Drill
     @out = drill
   end
 
+  def hint
+    puts hints[rand(0...hints.size)]
+  end
+
   def start
     show
     puts

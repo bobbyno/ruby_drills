@@ -20,8 +20,8 @@ array and merge the corresponding elements from a and b to return
     "[1,2,3].zip(@a, @b)"
   end
 
-  def hint
-    puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-zip"
+  def hints
+    ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-zip"]
   end
 
 end

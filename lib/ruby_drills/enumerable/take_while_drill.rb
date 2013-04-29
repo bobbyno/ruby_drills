@@ -18,7 +18,7 @@ returns an array of all prior elements to return #{expected.inspect}:
     "@a.take_while {|x| x < 4}"
   end
 
-  def hint
-    puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-take_while"
+  def hints
+    ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-take_while"]
   end
 end

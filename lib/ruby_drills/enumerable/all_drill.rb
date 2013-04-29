@@ -19,8 +19,8 @@ members are false or nil. No block is necessary to answer this:
     "@values.all?"
   end
 
-  def hint
-    puts "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"
+  def hints
+    ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
 end
