@@ -15,7 +15,7 @@ In this drill, you'll practice the methods in the enumerable mixin
 and will make a Ruby class Enumerable.
 
 ------------------------------------------------------------------
-    }
+}
   end
 
   def start
@@ -23,8 +23,8 @@ and will make a Ruby class Enumerable.
       drill.show
       begin
         input = Readline.readline("\n>> ", true)
-      end while (!drill.grade(input))
-      Commands.press_any
+      end while (!drill.done?(input))
+      Commands.continue
     end
   end
 

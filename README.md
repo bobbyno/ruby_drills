@@ -4,7 +4,10 @@ Drills are used in sports to master specific movements. In basketball, players d
 
 In programming, drills are useful for developing skills in specific language features, API's, or idioms. Drills lack the complexity of a full project. They can be performed alone or with others. Drills complement more complex scrimmage practices such as Ruby Koans, Ruby Quiz, or work on an open-source project. Were we to use a Japanese expression, drills could also be thought of as 'Kihon', the simpler precursor to 'Kata'. Drills provide a way to engage in the [deliberate practice](http://en.wikipedia.org/wiki/Practice_(learning_method)#Deliberate_practice) of programming as a way to explore a new langauge or API or perfect technique.
 
-Coding Drills are a way to engage in deliberate practice to master a language. Challenges in Ruby Drills are focused on a specific method. Answers typically consist of a single line. Your objective is to complete the drill with ease and joy, without consulting any external documentation.
+Drills are a way to engage in deliberate practice to master a language.
+Challenges in Ruby Drills focus on a specific method.
+Answers typically consist of a single line.
+Your objective is to complete the drill with ease and joy, without consulting any external documentation.
 
 For example, a drill for the `Enumerable#zip` method could consist of the following:
 
