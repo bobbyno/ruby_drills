@@ -1,51 +1,13 @@
 class Drill
-  attr_accessor :description, :out
-
-  def add(drill=nil)
-    @out = drill
-  end
-
-  def hint
-    puts hints[rand(0...hints.size)]
-  end
-
-  def start
-    show
-    puts
-    self.pry(:quiet => true, :commands => commands)
-  end
-
-  def answer(ans=nil)
-    grade(ans)
-  end
+  attr_accessor :description
 
   def expected
     eval(reference)
   end
 
-  def skip
-    grade('skip')
-  end
-
-  def fold
-    puts "\nKnow when to fold 'em...\n".yellow
-    grade('skip')
-  end
-
   def commands
     Pry::CommandSet.new do
-
-      command "clear", "clear the screen" do
-        system('clear');
-      end
-
-      command "quit", "end your session" do
-        puts "Keep practicing!"
-        exit
-      end
-
       command "help", "show this message" do
-        output.puts "\tanswer _:\twhen you think you have the right answer, call answer _ to check."
         output.puts "\tshow:\tshow the problem description"
         output.puts "\thint:\tget unstuck"
         output.puts "\tskip:\tmove on to the next drill"
@@ -60,12 +22,9 @@ class Drill
       out.start
   end
 
-private
-
   def fail(message=nil)
-      puts "\tFAIL.".red
-      puts message.red unless message.nil?
-      puts
+      puts "\n\tnot yet...".yellow
+      puts message.yellow unless message.nil?
   end
 
   def press_any
@@ -74,28 +33,64 @@ private
       system('clear');
   end
 
-  def grade(answer)
-    # Data TODO: User's session can be retrieved with the following:
-    # code = Pry::Code.from_file('(pry)')
-    # lines = code.to_s.split('\n')
+  def grade(input)
+    case input
+    when 'clear'
+      system('clear')
+      false
+    when 'show'
+      show
+      false
+    when 'hint'
+      puts hints[rand(0...hints.size)]
+    when 'skip'
+      puts "\n\tskipping...for now...".yellow
+      true
+    when 'fold'
+      puts "\nYou got to know when to hold 'em, know when to fold 'em...\n".yellow
+      true
+    when 'exit'
+      system('clear')
+      puts %{
+        Mastery...the mysterious process during which what is at first difficult
+        becomes progressively easier and more pleasurable through practice.
 
-    # line buffer will work if the user types answer _ to check their work.
-    # Pry.line_buffer[Pry.current_line-1]
+                                                              --- George Leonard}
+      puts
+      exit
+    else
+      check_answer(input)
+    end
+  end
 
-    case answer
+private
+  def check_answer(input)
+    @context ||= Pry.binding_for(self)
+    answer = StringIO.new
+    exp = StringIO.new
+
+    begin
+      Pry.run_command input, :context => @context, :output => answer
+      Pry.run_command reference, :context => @context, :output => exp
+      puts "=> #{@context.eval(input)}"
+    rescue
+      puts "Error:"
+      puts answer.string
+    end
+
+    case answer.string
     when nil
       puts "Did you forget to answer the question?"
-    when expected
-      puts "\n\tWIN!!!\n".green
+      false
+    when exp.string
+      puts "\n\t!!! WIN !!!\n".green
       puts "How did your approach compare to this?"
       puts reference
-      press_any
-      next_drill
-    when 'skip'
-      press_any
-      next_drill
+      # TODO: Add required elements to the solution.
+      true
     else
       fail
+      false
     end
   end
 end

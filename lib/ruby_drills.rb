@@ -14,12 +14,41 @@ class RubyDrills
     RubyDrills.new
   end
 
+  def banner
+    %{
+Welcome to Ruby Drills!
+
+Drills are a way to engage in deliberate practice to master a language.
+Challenges in Ruby Drills are focused on a specific method. Answers typically
+consist of a single line. Your objective is to complete the drill with ease and joy,
+without consulting any external documentation.
+
+------------------------------------------------------------------
+    }
+  end
+
+  def epilogue
+    "\nThe master and the master's path are one...keep walking the Long Road."
+  end
+
   def initialize
     config_pry
     enum_drills = EnumerableDrills.new
     system 'clear';
+    puts banner
+    press_any
     puts enum_drills.banner
+    press_any
     enum_drills.start
+    system('clear');
+    puts epilogue
+    puts
+  end
+
+  def press_any
+    puts "\nPress any key to continue:"
+    gets.chomp
+    system('clear');
   end
 
   def config_pry

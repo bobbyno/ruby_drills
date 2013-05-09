@@ -1,6 +1,7 @@
 Dir['./lib/ruby_drills/enumerable/*drill.rb'].each do |f|
   require f
 end
+require 'readline'
 
 class EnumerableDrills
 
@@ -18,11 +19,16 @@ and will make a Ruby class Enumerable.
   end
 
   def start
-    a = AllNamesDrill.new
-    a.add(AllDrill.new)
-      .add(ZipDrill.new)
-      .add(TakeWhileDrill.new)
-      .add(ChunkDrill.new)
-    a.start
+    drills.each do |drill|
+      drill.show
+      begin
+        input = Readline.readline("\n>> ", true)
+      end while (!drill.grade(input))
+      drill.press_any
+    end
+  end
+
+  def drills
+    [AllNamesDrill.new, AllDrill.new, ZipDrill.new, TakeWhileDrill.new, ChunkDrill.new]
   end
 end
