@@ -5,6 +5,7 @@ require 'colorize'
 require 'ruby_drills/version'
 require 'ruby_drills/cli'
 require 'ruby_drills/drill'
+require 'ruby_drills/commands'
 
 require 'ruby_drills/enumerable/enumerable_drills'
 
@@ -36,19 +37,13 @@ without consulting any external documentation.
     enum_drills = EnumerableDrills.new
     system 'clear';
     puts banner
-    press_any
+    Commands.press_any
     puts enum_drills.banner
-    press_any
+    Commands.press_any
     enum_drills.start
     system('clear');
     puts epilogue
     puts
-  end
-
-  def press_any
-    puts "\nPress any key to continue:"
-    gets.chomp
-    system('clear');
   end
 
   def config_pry

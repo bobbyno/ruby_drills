@@ -17,20 +17,9 @@ class Drill
     end
   end
 
-  def next_drill
-      exit if @out.nil?
-      out.start
-  end
-
   def fail(message=nil)
       puts "\n\tnot yet...".yellow
       puts message.yellow unless message.nil?
-  end
-
-  def press_any
-      puts "\nPress any key to continue:"
-      gets.chomp
-      system('clear');
   end
 
   def grade(input)

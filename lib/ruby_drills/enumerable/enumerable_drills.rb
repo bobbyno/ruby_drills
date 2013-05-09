@@ -24,7 +24,7 @@ and will make a Ruby class Enumerable.
       begin
         input = Readline.readline("\n>> ", true)
       end while (!drill.grade(input))
-      drill.press_any
+      Commands.press_any
     end
   end
 
