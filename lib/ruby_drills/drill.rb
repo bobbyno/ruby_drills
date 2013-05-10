@@ -9,6 +9,9 @@ class Drill
     when 'help'
       Commands.help
       false
+    when 'pry'
+      @context.pry
+      false
     when '?'
       Commands.help
       false
@@ -51,7 +54,8 @@ private
     rescue
       puts "Error:"
       puts answer.string
-      # intentional fall-through to 'fail'
+      Commands.fail
+      return false
     end
 
     case answer.string
@@ -59,7 +63,9 @@ private
       puts "Did you forget to answer the question?"
       false
     when exp.string
-      # TODO: check required elements
+      # TODO: check required elements  (RESUME HERE)
+      # Add a validation function that takes the input and looks for the key
+      # methods that must be part of a winning solution.
       puts "\n\t!!! WIN !!!\n".green
       puts "How did your approach compare to this?"
       puts reference

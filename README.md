@@ -2,7 +2,7 @@
 
 Drills are used in sports to master specific movements. In basketball, players drill on free throws, three-pointers, and dribbling. Scrimmages, on the other hand, are used to mimic the conditions and complexity of a game in order to integrate skills built in drills and develop teamwork.
 
-In programming, drills are useful for developing skills in specific language features, API's, or idioms. Drills lack the complexity of a full project. They can be performed alone or with others. Drills complement more complex scrimmage practices such as Ruby Koans, Ruby Quiz, or work on an open-source project. Were we to use a Japanese expression, drills could also be thought of as 'Kihon', the simpler precursor to 'Kata'. Drills provide a way to engage in the [deliberate practice](http://en.wikipedia.org/wiki/Practice_(learning_method)#Deliberate_practice) of programming as a way to explore a new langauge or API or perfect technique.
+In programming, drills are useful for developing skills in specific language features, API's, or idioms. Drills lack the complexity of a full project. They can be performed alone or with others. Drills complement more complex scrimmage practices such as Ruby Koans, Ruby Quiz, or work on an open-source project. Were we to use a Japanese expression, drills could also be thought of as 'Kihon', the simpler precursor to 'Kata'. Drills provide a way to engage in the deliberate practice of programming as a way to explore a new langauge or API or perfect technique.
 
 Drills are a way to engage in deliberate practice to master a language.
 Challenges in Ruby Drills focus on a specific method.
