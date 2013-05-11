@@ -2,6 +2,7 @@ class AllDrill < Drill
 
   def initialize
     @values = [ nil, true, 99 ]
+    super
   end
 
   def show

@@ -2,6 +2,7 @@ class TakeWhileDrill < Drill
 
   def initialize
     @a = [1, 2, 3, 4, 5, 0]
+    super
   end
 
   def show

@@ -1,5 +1,9 @@
 class Drill
 
+  def initialize
+    @context = Pry.binding_for(self)
+  end
+
   def expected
     eval(reference)
   end
@@ -50,7 +54,6 @@ private
   end
 
   def check_answer(input)
-    @context ||= Pry.binding_for(self)
     answer = StringIO.new
     exp = StringIO.new
 
