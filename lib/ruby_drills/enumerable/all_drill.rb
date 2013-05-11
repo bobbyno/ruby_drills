@@ -23,4 +23,8 @@ members are false or nil. No block is necessary to answer this:
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
+  def required
+    ["all?"]
+  end
+
 end

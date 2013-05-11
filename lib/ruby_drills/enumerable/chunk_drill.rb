@@ -28,4 +28,8 @@ of the successive elements to another Enumerable method.
      ".to_a can be useful to see the output of methods that produce Enumerators",
      "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-chunk"]
   end
+
+  def required
+    ["chunk", "sort"]
+  end
 end

@@ -42,6 +42,13 @@ class Drill
 
 private
 
+  def input_compares_to_required?(input)
+      if (!(valid = required.all? {|req| input.include?(req) }))
+        Commands.fail("\tyou have the right answer, but try a different method.")
+      end
+      return valid
+  end
+
   def check_answer(input)
     @context ||= Pry.binding_for(self)
     answer = StringIO.new
@@ -63,11 +70,10 @@ private
       puts "Did you forget to answer the question?"
       false
     when exp.string
-      # TODO: check required elements  (RESUME HERE)
-      # Add a validation function that takes the input and looks for the key
-      # methods that must be part of a winning solution.
+      return false if !input_compares_to_required?(input)
+
       puts "\n\t!!! WIN !!!\n".green
-      puts "How did your approach compare to this?"
+      puts "How does your answer compare to the reference?"
       puts reference
       true
     else
