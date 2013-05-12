@@ -1,4 +1,5 @@
 class Drill
+  include Commands
 
   def initialize
     @context = Pry.binding_for(self)
@@ -9,46 +10,19 @@ class Drill
   end
 
   def done?(input)
-    case input
-    when 'help'
-      Commands.help
-      false
-    when 'pry'
-      @context.pry
-      false
-    when '?'
-      Commands.help
-      false
-    when 'clear'
-      system('clear')
-      false
-    when 'show'
-      show
-      false
-    when 'hint'
-      puts hints[rand(0...hints.size)]
-    when 'skip'
-      puts "\n\tskipping...for now...".yellow
-      true
-    when 'fold'
-      puts "\nYou got to know when to hold 'em, know when to fold 'em...\n".yellow
-      true
-    when 'quit'
-      Commands.exit
-      exit
-    when 'exit'
-      Commands.exit
-      exit
-    else
-      check_answer(input)
-    end
+    quit if input == 'exit'
+    self.send(input)
+  end
+
+  def method_missing(symbol, *args, &block)
+    check_answer(symbol.to_s)
   end
 
 private
 
   def input_compares_to_required?(input)
       if (!(valid = required.all? {|req| input.include?(req) }))
-        Commands.fail("\tyou have the right answer, but try a different method.")
+        fail("\tyou have the right answer, but try a different method.")
       end
       return valid
   end
@@ -61,11 +35,10 @@ private
       Pry.run_command input, :context => @context, :output => answer
       Pry.run_command reference, :context => @context, :output => exp
       puts "=> #{@context.eval(input)}"
-    rescue
-      puts "Error:"
+    rescue StandardError => ex
+      puts "Error: #{ex.inspect}"
       puts answer.string
-      Commands.fail
-      return false
+      fail
     end
 
     case answer.string
@@ -80,8 +53,7 @@ private
       puts reference
       true
     else
-      Commands.fail
-      false
+      fail
     end
   end
 end

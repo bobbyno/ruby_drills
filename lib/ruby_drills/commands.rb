@@ -1,15 +1,36 @@
-class Commands
-  class << self
-
+module Commands
+    # Each command returns a response indicating whether or not the drill is complete.
     def continue
         puts "\nPress any key to continue:"
         gets.chomp
         system('clear');
+        true
     end
 
     def fail(message=nil)
         puts "\n\tnot yet...".yellow
         puts message.yellow unless message.nil?
+        false
+    end
+
+    def skip
+      puts "\n\tskipping...for now...".yellow
+      true
+    end
+
+    def fold
+      puts "\nYou got to know when to hold 'em, know when to fold 'em...\n".yellow
+      true
+    end
+
+    def hint
+      puts hints[rand(0...hints.size)]
+      false
+    end
+
+    def clear
+      system('clear')
+      false
     end
 
     def help
@@ -26,9 +47,20 @@ These commands are also available to you:
           \thint:\tget unstuck
           \tskip:\tmove on to the next drill
           \texit:\tend your session}
+      false
     end
 
-    def exit
+    def start
+      drills.each do |drill|
+        drill.show
+        begin
+          input = Readline.readline("\n>> ", true)
+        end while (!drill.done?(input))
+        continue
+      end
+    end
+
+    def quit
       system('clear')
       puts %{
         Mastery...the mysterious process during which what is at first difficult
@@ -36,10 +68,11 @@ These commands are also available to you:
 
                                                               --- George Leonard}
       puts
+      exit
     end
 
     def welcome
-    puts %{
+      puts %{
 Welcome to Ruby Drills!
 
 Drills are a way to engage in deliberate practice to master a language.
@@ -50,7 +83,7 @@ without consulting any external documentation.
 
 ------------------------------------------------------------------
 }
+      false
     end
 
-  end
 end
