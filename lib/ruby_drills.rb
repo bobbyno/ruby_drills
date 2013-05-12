@@ -15,28 +15,34 @@ class RubyDrills
     RubyDrills.new
   end
 
+  def drills
+    %w[welcome enumerable]
+  end
+
   def initialize
     config_pry
-
-    # Welcome drill
     clear
-    welcome
-    continue
-    help
-    continue
 
-    # Process each collection of drills
-    Dir['./lib/ruby_drills/enumerable/*drill.rb'].each do |f|
-      require f
-    end
-    require 'ruby_drills/enumerable/enumerable_drills'
-    enum_drills = EnumerableDrills.new
-    puts enum_drills.banner
-    continue
-    enum_drills.start
+    # Assumes that the user wants to proceed linearly through the drills.
+    # TODO: Provide a menu and let the user pick the next thing they want to do.
+    drills.each {|d| run_drill(d) }
 
     clear
     quit
+  end
+
+private
+
+  def run_drill(d)
+    Dir["./lib/ruby_drills/#{d}/*drill.rb"].each do |f|
+      require f
+    end
+    require "ruby_drills/#{d}/#{d}_drills"
+    clazz = Module.const_get("#{d.capitalize}Drills")
+    drill = clazz.new
+    puts drill.banner
+    continue
+    drill.start
   end
 
   def config_pry
