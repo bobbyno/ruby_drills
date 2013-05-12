@@ -21,38 +21,23 @@ class Drill
 private
 
   def input_compares_to_required?(input)
-      if (!(valid = required.all? {|req| input.include?(req) }))
-        fail("\tyou have the right answer, but try a different method.")
-      end
-      return valid
+      valid = required.all? {|req| input.include?(req) }
+      fail("\tyou have the right answer, but try a different method.") if !valid
+      valid
   end
 
   def check_answer(input)
-    answer = StringIO.new
-    exp = StringIO.new
-
     begin
-      Pry.run_command input, :context => @context, :output => answer
-      Pry.run_command reference, :context => @context, :output => exp
+      Pry.run_command input, :context => @context, :output =>  answer = StringIO.new
+      Pry.run_command reference, :context => @context, :output => exp = StringIO.new
       puts "=> #{@context.eval(input)}"
+
+      return fail if answer.string != exp.string
+      comparable = input_compares_to_required?(input)
+      return false if !comparable
+      win(input)
     rescue StandardError => ex
-      puts "Error: #{ex.inspect}"
-      puts answer.string
-      fail
-    end
-
-    case answer.string
-    when nil
-      puts "Did you forget to answer the question?"
-      false
-    when exp.string
-      return false if !input_compares_to_required?(input)
-
-      puts "\n\t!!! WIN !!!\n".green
-      puts "How does your answer compare to the reference?"
-      puts reference
-      true
-    else
+      puts "#{input} caused an error: #{ex.inspect}"
       fail
     end
   end

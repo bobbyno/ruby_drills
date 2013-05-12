@@ -13,6 +13,16 @@ module Commands
         false
     end
 
+    def win(input)
+      puts "\n\t!!! WIN !!!\n".green
+
+      if (reference != input.strip)
+        puts "How does your answer compare to the reference solution?"
+        puts reference
+      end
+      true
+    end
+
     def skip
       puts "\n\tskipping...for now...".yellow
       true
