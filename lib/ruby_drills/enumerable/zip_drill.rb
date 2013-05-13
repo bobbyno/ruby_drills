@@ -25,8 +25,8 @@ array and merge the corresponding elements from a and b to return
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-zip"]
   end
 
-  def required
-    ["zip"]
+  def contains_required(input)
+    input.include?('zip')
   end
 
 end

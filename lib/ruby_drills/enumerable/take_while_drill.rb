@@ -23,7 +23,8 @@ returns an array of all prior elements to return #{expected.inspect}:
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-take_while"]
   end
 
-  def required
-    ["take_while"]
+  def contains_required(input)
+    input.include?('take_while')
   end
+
 end

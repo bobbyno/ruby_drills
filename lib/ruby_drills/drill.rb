@@ -20,7 +20,6 @@ class Drill
     end
   end
 
-
 private
 
   def check_answer(input)
@@ -31,8 +30,7 @@ private
       puts answer.string
 
       return fail if answer.string != exp.string
-      comparable = input_compares_to_required?(input)
-      return false if !comparable
+      return false if !comparable_answer?(input)
       win(input)
     rescue SyntaxError => ex
       puts "SyntaxError"
@@ -43,10 +41,8 @@ private
     end
   end
 
-  def input_compares_to_required?(input)
-      required.all? {|req| input.include?(req) }.tap do |valid|
-        fail("\tyou have the right answer, but try a different method.") if !valid
-      end
+  def comparable_answer?(input)
+    contains_required(input).tap {|pass| fail("\tyou have the right answer, but try a different method.") if !pass}
   end
 
 end

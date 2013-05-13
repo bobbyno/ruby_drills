@@ -30,7 +30,8 @@ of the successive elements to another Enumerable method.
      "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-chunk"]
   end
 
-  def required
-    ["chunk", "sort"]
+  def contains_required(input)
+    ["chunk", "sort"].all? {|fn| input.include?(fn)}
   end
+
 end
