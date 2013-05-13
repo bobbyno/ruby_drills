@@ -12,7 +12,7 @@ class Drill
   def done?(input)
     quit if input == 'exit'
     return show if input == 'show'
-    # check list of methods in Commands and send if found
+
     if Commands.instance_methods.include?(input.to_sym)
       self.send(input)
     else
@@ -24,9 +24,9 @@ class Drill
 private
 
   def input_compares_to_required?(input)
-      valid = required.all? {|req| input.include?(req) }
-      fail("\tyou have the right answer, but try a different method.") if !valid
-      valid
+      required.all? {|req| input.include?(req) }.tap do |valid|
+        fail("\tyou have the right answer, but try a different method.") if !valid
+      end
   end
 
   def check_answer(input)
