@@ -23,18 +23,12 @@ class Drill
 
 private
 
-  def input_compares_to_required?(input)
-      required.all? {|req| input.include?(req) }.tap do |valid|
-        fail("\tyou have the right answer, but try a different method.") if !valid
-      end
-  end
-
   def check_answer(input)
     begin
       Pry.run_command input, :context => @context, :output =>  answer = StringIO.new
       Pry.run_command reference, :context => @context, :output => exp = StringIO.new
 
-      puts "=> #{@context.eval(input)}"
+      puts answer.string
 
       return fail if answer.string != exp.string
       comparable = input_compares_to_required?(input)
@@ -48,4 +42,11 @@ private
       fail
     end
   end
+
+  def input_compares_to_required?(input)
+      required.all? {|req| input.include?(req) }.tap do |valid|
+        fail("\tyou have the right answer, but try a different method.") if !valid
+      end
+  end
+
 end
