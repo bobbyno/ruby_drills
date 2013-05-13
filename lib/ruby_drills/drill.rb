@@ -42,7 +42,7 @@ private
   end
 
   def comparable_answer?(input)
-    contains_required(input).tap {|pass| fail("\tyou have the right answer, but try a different method.") if !pass}
+    valid?(input).tap {|pass| fail("\tyou have the right answer, but try a different method.") if !pass}
   end
 
 end

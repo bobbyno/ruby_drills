@@ -17,15 +17,15 @@ array and merge the corresponding elements from a and b to return
     }
   end
 
-  def reference
-    "[1,2,3].zip(@a, @b)"
-  end
-
   def hints
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-zip"]
   end
 
-  def contains_required(input)
+  def reference
+    "[1,2,3].zip(@a, @b)"
+  end
+
+  def valid?(input)
     input.include?('zip')
   end
 

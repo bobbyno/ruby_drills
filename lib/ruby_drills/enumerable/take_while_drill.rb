@@ -15,15 +15,15 @@ returns an array of all prior elements to return #{expected.inspect}:
 }
   end
 
-  def reference
-    "@a.take_while {|x| x < 4}"
-  end
-
   def hints
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-take_while"]
   end
 
-  def contains_required(input)
+  def reference
+    "@a.take_while {|x| x < 4}"
+  end
+
+  def valid?(input)
     input.include?('take_while')
   end
 

@@ -16,15 +16,15 @@ members are false or nil. No block is necessary to answer this:
 }
   end
 
-  def reference
-    "@values.all?"
-  end
-
   def hints
     ["http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
-  def contains_required(input)
+  def reference
+    "@values.all?"
+  end
+
+  def valid?(input)
     input.include?("all?")
   end
 

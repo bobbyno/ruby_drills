@@ -18,16 +18,16 @@ returns false or nil.
 }
   end
 
+  def hints
+    ["Your answer will look something like @names.xxxxx {|y| y.zzz > 4 }",
+     "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
+  end
+
   def reference
     "@names.all? {|n| n.size > 4}"
   end
 
-  def hints
-    ["Your answer will look something like @names.xxxxx {|x| yyy }",
-     "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
-  end
-
-  def contains_required(input)
+  def valid?(input)
     input.include?("all?") && (input.include?('size > 4') || input.include?('length > 4'))
   end
 

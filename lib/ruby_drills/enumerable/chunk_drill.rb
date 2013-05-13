@@ -20,17 +20,17 @@ of the successive elements to another Enumerable method.
 }
   end
 
-  def reference
-    "@names.sort.chunk {|n| n[0]}.map {|char, lines| [char, lines.size]}"
-  end
-
   def hints
     ["Remember, this method is especially useful for sorted series of elements.",
      ".to_a can be useful to see the output of methods that produce Enumerators",
      "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-chunk"]
   end
 
-  def contains_required(input)
+  def reference
+    "@names.sort.chunk {|n| n[0]}.map {|char, lines| [char, lines.size]}"
+  end
+
+  def valid?(input)
     ["chunk", "sort"].all? {|fn| input.include?(fn)}
   end
 
