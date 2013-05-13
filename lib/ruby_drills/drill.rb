@@ -2,6 +2,7 @@ class Drill
   include Commands
 
   def initialize
+    setup
     @context = Pry.binding_for(self)
   end
 

@@ -1,8 +1,7 @@
 class AllNamesDrill < Drill
 
-  def initialize
+  def setup
     @names = %w[ Al Slartibartfast Aaron Yvonne Bobby ]
-    super
   end
 
   def show

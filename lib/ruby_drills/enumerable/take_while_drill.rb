@@ -1,8 +1,7 @@
 class TakeWhileDrill < Drill
 
-  def initialize
+  def setup
     @a = [1, 2, 3, 4, 5, 0]
-    super
   end
 
   def show
