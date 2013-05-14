@@ -45,6 +45,20 @@ Start by choosing an available drill from the menu.
 
 The drills will then walk you through one-line challeges that will allow you to demonstrate your mastery of the API.
 
+## Drill API
+
+Each drill consists of five methods:
+
+setup: initialize instance variables used in the drill.
+
+show: puts a string that describes the drill.
+
+hints: return an array of hints that will be randomly shown.
+
+reference: provide a reference solution as valid ruby code in string form. This will be eval'ed to determine if the user's input should be validated.
+
+valid?(input): a validation function that returns true or false. Used to see if a user's input that matches the reference solution meets other constraints.
+
 ## Contributing
 
 1. Fork it

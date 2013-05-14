@@ -25,6 +25,6 @@ the second containing the rest.
   end
 
   def valid?(input)
-    true
+    input.include?('partition')
   end
 end
