@@ -6,6 +6,11 @@ class Drill
     @context = Pry.binding_for(self)
   end
 
+  def drills
+    # Composite pattern: Allow for drill.start to work in the REPL or in tests.
+    [self]
+  end
+
   def expected
     eval(reference)
   end

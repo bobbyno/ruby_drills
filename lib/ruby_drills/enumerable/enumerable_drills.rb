@@ -15,6 +15,7 @@ and will make a Ruby class Enumerable.
   end
 
   def drills
-    [AllNamesDrill.new, AllDrill.new, ZipDrill.new, TakeWhileDrill.new, ChunkDrill.new]
+    # TODO: shuffle after initial list is complete
+    [PartitionDrill.new, AllNamesDrill.new, AllDrill.new, ZipDrill.new, TakeWhileDrill.new, ChunkDrill.new]
   end
 end
