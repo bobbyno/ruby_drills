@@ -1,4 +1,6 @@
 module Commands
+    GAMBLER = File.read(File.join(File.dirname(__FILE__), 'data/gambler.ascii'))
+
     # Each command returns a response indicating whether or not the drill is complete.
     def continue
         puts "\nPress any key to continue:"
@@ -29,6 +31,7 @@ module Commands
     end
 
     def fold
+      puts GAMBLER
       puts "\nYou got to know when to hold 'em, know when to fold 'em...\n".yellow
       true
     end
@@ -36,6 +39,11 @@ module Commands
     def hint
       puts hints[rand(0...hints.size)]
       false
+    end
+
+    def back
+      puts "\tYou're already at the first drill".yellow if !previous
+      previous
     end
 
     def clear
@@ -52,21 +60,40 @@ Once you get the answer correct, you'll get a 'WIN' on the board.
 These commands are also available to you:
 
           \thelp:\tthis screen
-          \tclear:\tclear the screen
           \tshow:\tshow the problem description
           \thint:\tget unstuck
-          \tskip:\tmove on to the next drill
+          \tback:\tback to the previous drill
+          \tskip:\ton to the next drill
+          \tclear:\tclear the screen
           \texit:\tend your session}
       false
     end
 
     def start
-      drills.each do |drill|
+      drill = linked_drills[0]
+      while true do
         drill.show
         begin
           input = Readline.readline("\n>> ", true)
         end while (!drill.done?(input))
-        continue
+
+        if (input == 'back')
+          drill = drill.previous
+          clear
+        else
+          break if (!drill.next)
+          drill = drill.next
+          continue
+        end
+      end
+    end
+
+    def linked_drills
+      drills.tap do |linked|
+        for i in 0..linked.size-1
+          linked[i].previous = linked[i-1] unless (i == 0)
+          linked[i].next = linked[i+1] unless (i == linked.size-1)
+        end
       end
     end
 

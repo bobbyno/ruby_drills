@@ -1,5 +1,6 @@
 class Drill
   include Commands
+  attr_accessor :next, :previous
 
   def initialize
     setup
