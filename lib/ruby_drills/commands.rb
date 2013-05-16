@@ -3,7 +3,7 @@ module Commands
 
     # Each command returns a response indicating whether or not the drill is complete.
     def continue
-        puts "\nPress any key to continue:"
+        puts "\nPress return to continue:"
         gets.chomp
         system('clear');
         true
@@ -27,6 +27,12 @@ module Commands
 
     def skip
       puts "\n\tskipping...for now...".yellow
+      true
+    end
+
+    def review
+      puts "\n\t#{reference}".green
+      puts "\n\ttry this one again soon...".yellow
       true
     end
 
@@ -64,6 +70,7 @@ These commands are also available to you:
           \thint:\tget unstuck
           \tback:\tback to the previous drill
           \tskip:\ton to the next drill
+          \treview:\tsee the answer
           \tclear:\tclear the screen
           \texit:\tend your session}
       false
@@ -71,7 +78,7 @@ These commands are also available to you:
 
     def start
       drill = linked_drills[0]
-      while true do
+      while drill do
         drill.show
         begin
           input = Readline.readline("\n>> ", true)
@@ -81,7 +88,6 @@ These commands are also available to you:
           drill = drill.previous
           clear
         else
-          break if (!drill.next)
           drill = drill.next
           continue
         end
