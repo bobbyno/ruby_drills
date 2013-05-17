@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ruby_drills/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "RubyDrills"
+  gem.name          = "ruby_drills"
   gem.version       = RubyDrills::VERSION
 
   gem.authors       = ["Bobby Norton"]
