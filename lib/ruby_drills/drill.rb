@@ -18,17 +18,17 @@ class Drill
 
   def done?(input)
     if input == 'exit'
-      RubyDrills::SESSIONS.command(self.class.name, input)
+      RubyDrills::Config::SESSIONS.command(self.class.name, input)
       quit
     end
 
     if input == 'show'
-      RubyDrills::SESSIONS.command(self.class.name, input)
+      RubyDrills::Config::SESSIONS.command(self.class.name, input)
       return show
     end
 
     if Commands.instance_methods.include?(input.to_sym)
-      RubyDrills::SESSIONS.command(self.class.name, input)
+      RubyDrills::Config::SESSIONS.command(self.class.name, input)
       self.send(input)
     else
       check_answer(input)

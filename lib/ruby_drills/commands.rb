@@ -11,14 +11,14 @@ module Commands
 
     def fail(input, message=nil)
       puts "\n\tnot yet...".yellow
-      RubyDrills::SESSIONS.save(self.class.name, input, reference, 'fail')
+      RubyDrills::Config::SESSIONS.save(self.class.name, input, reference, 'fail')
       puts message.yellow unless message.nil?
       false
     end
 
     def win(input)
       puts "\n\t!!! WIN !!!\n".green
-      RubyDrills::SESSIONS.save(self.class.name, input, reference, 'pass')
+      RubyDrills::Config::SESSIONS.save(self.class.name, input, reference, 'pass')
       if (reference != input.strip)
         puts "How does your answer compare to the reference solution?"
         puts reference

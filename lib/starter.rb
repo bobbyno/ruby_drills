@@ -9,22 +9,13 @@ require 'ruby_drills/commands'
 require 'ruby_drills/drill'
 require 'ruby_drills/chomper'
 require 'ruby_drills/sessions/local'
+require 'ruby_drills/config'
 
-class RubyDrills
+class Starter
   include Commands
 
-  SESSIONS = Sessions::Local.new
-
-  def self.start
-    RubyDrills.new
-  end
-
-  def drills
-    %w[welcome enumerable]
-  end
-
   def initialize
-    config_pry
+    RubyDrills::Config.pry_config
     clear
 
     # Assumes that the user wants to proceed linearly through the drills.
@@ -33,6 +24,10 @@ class RubyDrills
 
     clear
     quit
+  end
+
+  def drills
+    %w[welcome enumerable]
   end
 
 private
@@ -49,16 +44,4 @@ private
     drill.start
   end
 
-  def config_pry
-    Pry.config.pager = false
-
-    Pry.config.prompt = [
-      proc { |target_self, nest_level, pry|
-        "#{":#{nest_level}" unless nest_level.zero?}>> "
-        },
-        proc { |target_self, nest_level, pry|
-          "#{":#{nest_level}" unless nest_level.zero?}* "
-        }
-      ]
-  end
 end

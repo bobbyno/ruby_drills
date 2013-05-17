@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
-$0 = 'ruby_drills'
+$0 = 'starter'
 
 begin
-  require 'ruby_drills'
+  require 'starter'
 rescue LoadError
   require 'rubygems'
-  require 'ruby_drills'
+  require 'starter'
 end
 
 # Process command line options and run

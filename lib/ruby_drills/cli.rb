@@ -1,4 +1,4 @@
-class RubyDrills
+module RubyDrills
 
   # Manage the processing of command line options
   class CLI
@@ -72,5 +72,5 @@ RubyDrills::CLI.add_options do
   end
 end.process_options do |opts|
   exit if opts.help?
-  RubyDrills.start
+  Starter.new
 end
