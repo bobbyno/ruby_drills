@@ -17,10 +17,18 @@ class Drill
   end
 
   def done?(input)
-    quit if input == 'exit'
-    return show if input == 'show'
+    if input == 'exit'
+      RubyDrills::SESSIONS.command(self.class.name, input)
+      quit
+    end
+
+    if input == 'show'
+      RubyDrills::SESSIONS.command(self.class.name, input)
+      return show
+    end
 
     if Commands.instance_methods.include?(input.to_sym)
+      RubyDrills::SESSIONS.command(self.class.name, input)
       self.send(input)
     else
       check_answer(input)
@@ -36,20 +44,22 @@ private
 
       puts answer.string
 
-      return fail if answer.string != exp.string
+      return fail(input) if answer.string != exp.string
       return false if !comparable_answer?(input)
       win(input)
     rescue SyntaxError => ex
       puts "SyntaxError"
-      fail
+      fail(input)
     rescue StandardError => ex
       puts "#{ex.inspect}"
-      fail
+      fail(input)
     end
   end
 
   def comparable_answer?(input)
-    valid?(input).tap {|pass| fail("\tyou have the right answer, but try a different method.") if !pass}
+    valid?(input).tap do |pass|
+      fail(input, "\tyou have the right answer, but try a different method.") if !pass
+    end
   end
 
 end

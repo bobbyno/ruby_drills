@@ -7,9 +7,13 @@ require 'ruby_drills/version'
 require 'ruby_drills/cli'
 require 'ruby_drills/commands'
 require 'ruby_drills/drill'
+require 'ruby_drills/chomper'
+require 'ruby_drills/sessions/local'
 
 class RubyDrills
   include Commands
+
+  SESSIONS = Sessions::Local.new
 
   def self.start
     RubyDrills.new

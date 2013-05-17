@@ -3,21 +3,22 @@ module Commands
 
     # Each command returns a response indicating whether or not the drill is complete.
     def continue
-        puts "\nPress return to continue:"
-        gets.chomp
-        system('clear');
-        true
+      puts "\nPress any key to continue:"
+      Chomper.get_char
+      system('clear');
+      true
     end
 
-    def fail(message=nil)
-        puts "\n\tnot yet...".yellow
-        puts message.yellow unless message.nil?
-        false
+    def fail(input, message=nil)
+      puts "\n\tnot yet...".yellow
+      RubyDrills::SESSIONS.save(self.class.name, input, reference, 'fail')
+      puts message.yellow unless message.nil?
+      false
     end
 
     def win(input)
       puts "\n\t!!! WIN !!!\n".green
-
+      RubyDrills::SESSIONS.save(self.class.name, input, reference, 'pass')
       if (reference != input.strip)
         puts "How does your answer compare to the reference solution?"
         puts reference
@@ -59,20 +60,20 @@ module Commands
 
     def help
         puts %{
-For each drill, type in some Ruby code. If your answer doesn't meet the
-drill's requirements, you'll see 'not yet'.
-Once you get the answer correct, you'll get a 'WIN' on the board.
+For each drill, type in some Ruby.
+Answer correctly and you'll get a 'WIN' on the board.
+Otherwise, you'll see 'not yet'.
 
 These commands are also available to you:
 
-          \thelp:\tthis screen
-          \tshow:\tshow the problem description
-          \thint:\tget unstuck
-          \tback:\tback to the previous drill
-          \tskip:\ton to the next drill
-          \treview:\tsee the answer
-          \tclear:\tclear the screen
-          \texit:\tend your session}
+      help:\tthis screen
+      show:\tshow the problem description
+      hint:\tget unstuck
+      back:\tback to the previous drill
+      skip:\ton to the next drill
+      review:\tsee the answer
+      clear:\tclear the screen
+      exit:\tend your session}
       false
     end
 
