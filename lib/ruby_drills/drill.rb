@@ -17,17 +17,14 @@ class Drill
   end
 
   def done?(input)
-    if input == 'exit'
+    case input.to_sym
+    when :exit
       RubyDrills::Config::SESSIONS.command(self.class.name, input)
       quit
-    end
-
-    if input == 'show'
+    when :show
       RubyDrills::Config::SESSIONS.command(self.class.name, input)
-      return show
-    end
-
-    if Commands.instance_methods.include?(input.to_sym)
+      show
+    when lambda {|s| Commands.instance_methods.include?(s) }
       RubyDrills::Config::SESSIONS.command(self.class.name, input)
       self.send(input)
     else
