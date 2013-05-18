@@ -20,6 +20,14 @@ module Sessions
       store({drill: name, input: input, reference: reference, result: result, type: 'attempt'})
     end
 
+    def stats
+      @db.transaction(true) do
+        @db.roots.each do |key|
+          puts @db[key].inspect
+        end
+      end
+    end
+
   private
 
     def ensure_directory_exists

@@ -26,18 +26,20 @@ class Starter
 
   def menu(options)
     choice = nil
-    valid_choices = (0...options.size).to_a.map {|x| x.to_s}
+    drill_choices = (0...options.size).to_a.map {|x| x.to_s}
 
-    while (choice != '-1')
-      if valid_choices.include?(choice)
+    while (choice != 'q')
+      if drill_choices.include?(choice)
         clear
         run_drill(options[choice.to_i])
+      elsif (choice == 's')
+        RubyDrills::Config::SESSIONS.stats
       end
 
       puts "\nChoose your adventure:\n\n"
-      options.each_with_index {|opt, i| puts "\t #{i}: #{opt.capitalize}"}
-      # TODO: Add profile option that shows aggregated totals from history.
-      puts "\t-1: quit"
+      options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
+      puts "\n\ts: see your stats"
+      puts "\tq: quit"
 
       choice = Readline.readline("\n>> ", true)
     end
