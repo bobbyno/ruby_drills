@@ -36,7 +36,7 @@ class Starter
         RubyDrills::Config::SESSIONS.stats
       end
 
-      puts "\nChoose your adventure:\n\n"
+      puts "\nChoose your next adventure:\n\n"
       options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
       puts "\n\ts: see your stats"
       puts "\tq: quit"
@@ -46,7 +46,7 @@ class Starter
   end
 
   def drills
-    %w[welcome enumerable hash]
+    %w[welcome string enumerable array hash]
   end
 
 private
