@@ -49,9 +49,6 @@ class Starter
 private
 
   def run_drill(d)
-    Dir["./lib/ruby_drills/#{d}/*drill.rb"].each do |f|
-      require f
-    end
     require "ruby_drills/#{d}/#{d}_drills"
     clazz = Module.const_get("#{d.capitalize}Drills")
     drill = clazz.new

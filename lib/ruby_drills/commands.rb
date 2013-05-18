@@ -78,6 +78,32 @@ These commands are also available to you:
       false
     end
 
+    def welcome
+      puts %{
+Welcome to Ruby Drills!
+
+Drills are a way to engage in deliberate practice to master a language.
+Challenges in Ruby Drills focus on a specific method.
+Answers typically consist of a single line.
+Your objective is to complete the drill with ease and joy,
+without consulting any external documentation.
+
+-----------------------------------------------------------------------
+}
+    end
+
+    def quit
+      system('clear')
+      puts %{
+        Mastery...the mysterious process during which what is at first difficult
+        becomes progressively easier and more pleasurable through practice.
+
+                                                              --- George Leonard}
+      puts
+      exit
+    end
+
+
     def start
       drill = linked_drills[0]
       while drill do
@@ -110,29 +136,15 @@ These commands are also available to you:
       end
     end
 
-    def welcome
-      puts %{
-Welcome to Ruby Drills!
-
-Drills are a way to engage in deliberate practice to master a language.
-Challenges in Ruby Drills focus on a specific method.
-Answers typically consist of a single line.
-Your objective is to complete the drill with ease and joy,
-without consulting any external documentation.
-
------------------------------------------------------------------------
-}
-    end
-
-    def quit
-      system('clear')
-      puts %{
-        Mastery...the mysterious process during which what is at first difficult
-        becomes progressively easier and more pleasurable through practice.
-
-                                                              --- George Leonard}
-      puts
-      exit
+    def drills
+      # Determine the list of drills in this directory
+      mod = self.class.name.gsub(/Drills/, '').downcase
+      Dir["#{File.dirname(__FILE__)}/#{mod}/*drill.rb"].map do |f|
+        require f
+        name = File.basename(f, '.rb')
+        clazz = name.split('_').map(&:capitalize).join
+        Module.const_get(clazz).new
+      end
     end
 
 end
