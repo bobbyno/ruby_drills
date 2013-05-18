@@ -25,17 +25,18 @@ class Starter
 
   def menu(options)
     choice = nil
+    valid_choices = (0...options.size).to_a.map {|x| x.to_s}
 
-    while (choice != 'q')
-      if !choice.nil?
+    while (choice != '-1')
+      if valid_choices.include?(choice)
         clear
         run_drill(options[choice.to_i])
       end
 
       puts "\nChoose your adventure:\n\n"
-      options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
+      options.each_with_index {|opt, i| puts "\t #{i}: #{opt.capitalize}"}
       # TODO: Add profile option that shows aggregated totals from history.
-      puts "\tq: quit"
+      puts "\t-1: quit"
 
       choice = Readline.readline("\n>> ", true)
     end
