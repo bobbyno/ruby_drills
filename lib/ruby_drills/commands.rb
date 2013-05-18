@@ -73,6 +73,7 @@ These commands are also available to you:
       skip:\ton to the next drill
       review:\tsee the answer
       clear:\tclear the screen
+      menu:\tback to the main menu
       exit:\tend your session}
       false
     end
@@ -81,17 +82,22 @@ These commands are also available to you:
       drill = linked_drills[0]
       while drill do
         drill.show
+
         begin
           input = Readline.readline("\n>> ", true)
         end while (!drill.done?(input))
 
-        if (input == 'back')
+        case input
+        when 'back'
           drill = drill.previous
           clear
+        when 'menu'
+          break
         else
           drill = drill.next
           continue
         end
+
       end
     end
 
@@ -102,6 +108,20 @@ These commands are also available to you:
           linked[i].next = linked[i+1] unless (i == linked.size-1)
         end
       end
+    end
+
+    def welcome
+      puts %{
+Welcome to Ruby Drills!
+
+Drills are a way to engage in deliberate practice to master a language.
+Challenges in Ruby Drills focus on a specific method.
+Answers typically consist of a single line.
+Your objective is to complete the drill with ease and joy,
+without consulting any external documentation.
+
+-----------------------------------------------------------------------
+}
     end
 
     def quit

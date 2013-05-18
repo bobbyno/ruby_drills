@@ -17,13 +17,28 @@ class Starter
   def initialize
     RubyDrills::Config.pry_config
     clear
-
-    # Assumes that the user wants to proceed linearly through the drills.
-    # TODO: Provide a menu and let the user pick the next thing they want to do.
-    drills.each {|d| run_drill(d) }
-
+    welcome
+    menu(drills)
     clear
     quit
+  end
+
+  def menu(options)
+    choice = nil
+
+    while (choice != 'q')
+      if !choice.nil?
+        clear
+        run_drill(options[choice.to_i])
+      end
+
+      puts "\nChoose your adventure:\n\n"
+      options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
+      # TODO: Add profile option that shows aggregated totals from history.
+      puts "\tq: quit"
+
+      choice = Readline.readline("\n>> ", true)
+    end
   end
 
   def drills

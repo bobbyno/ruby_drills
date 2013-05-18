@@ -18,6 +18,10 @@ class Drill
 
   def done?(input)
     case input.to_sym
+    when :menu
+      RubyDrills::Config::SESSIONS.command(self.class.name, input)
+      clear
+      true
     when :exit
       RubyDrills::Config::SESSIONS.command(self.class.name, input)
       quit
