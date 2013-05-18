@@ -1,5 +1,4 @@
-class EnumerableDrills
-  include Commands
+class EnumerableDrills < Drills
 
   def banner
     %{
