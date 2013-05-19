@@ -26,17 +26,17 @@ class Starter
 
   def menu(options)
     choice = nil
-    drill_choices = (0...options.size).to_a.map {|x| x.to_s}
+    valid_choices = valid_number_to_drill_associations(options)
 
     while (choice != 'q')
-      if drill_choices.include?(choice)
+      if valid_choices.include?(choice)
         clear
         run_drill(options[choice.to_i])
       elsif (choice == 's')
         RubyDrills::Config::SESSIONS.stats
       end
 
-      puts "\nChoose your next adventure:\n\n"
+      puts "\nWhat would you like to learn next?\n\n"
       options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
       puts "\n\ts: see your stats"
       puts "\tq: quit"
@@ -50,6 +50,10 @@ class Starter
   end
 
 private
+
+  def valid_number_to_drill_associations(options)
+    (0...options.size).to_a.map {|x| x.to_s}
+  end
 
   def run_drill(d)
     require "ruby_drills/#{d}/#{d}_drills"
