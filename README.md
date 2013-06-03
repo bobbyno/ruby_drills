@@ -68,3 +68,10 @@ valid?(input): a validation function that returns true or false. Used to see if 
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
+
+## Credits
+
+* [Bobby Norton](http://twitter.com/bobbynorton)
+* Sarah Aslanifar at [Tested Minds](http://literate.ly)
+* The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
+
