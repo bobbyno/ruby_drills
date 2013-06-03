@@ -13,11 +13,11 @@ module Sessions
     end
 
     def command(name, input)
-      store({drill: name, input: input, type: 'command'})
+      store({context: name, input: input, type: 'command'})
     end
 
     def save(name, input, reference, result)
-      store({drill: name, input: input, reference: reference, result: result, type: 'attempt'})
+      store({context: name, input: input, reference: reference, result: result, type: 'attempt'})
     end
 
     def stats
@@ -36,9 +36,13 @@ module Sessions
 
     def store(entry)
       @db.transaction do
-        t = Time.now
+        t = rfc822
         @db[t.to_s] = entry.merge({ time: t })
       end
+    end
+
+    def rfc822
+      Time.now.strftime('%a, %d %b %Y %H:%M:%S %z')
     end
 
   end
