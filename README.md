@@ -1,15 +1,15 @@
 # Ruby Drills
 
-Drills are used in sports to master specific movements. In basketball, players drill on free throws, three-pointers, and dribbling. Scrimmages, on the other hand, are used to mimic the conditions and complexity of a game in order to integrate skills built in drills and develop teamwork.
+Drills are used in sports to master specific movements. In basketball, players drill on free throws, three-pointers, and dribbling. In programming, drills provide a way to engage in deliberate practice
+to develop skills in specific language features, API's, or idioms.
 
-In programming, drills are useful for developing skills in specific language features, API's, or idioms. Drills lack the complexity of a full project. They can be performed alone or with others. Drills complement more complex scrimmage practices such as Ruby Koans, Ruby Quiz, or work on an open-source project. Were we to use a Japanese expression, drills could also be thought of as 'Kihon', the simpler precursor to 'Kata'. Drills provide a way to engage in the deliberate practice of programming as a way to explore a new langauge or API or perfect technique.
+Scrimmages are used in sports to mimic the conditions and complexity of a game in order to integrate skills built in drills and develop teamwork. Drills complement more complex scrimmage practices such as Ruby Koans, Ruby Quiz, or work on an open-source project. Were we to use a Japanese expression, drills could also be thought of as 'Kihon', the simpler precursor to 'Kata'. Drills lack the complexity of a full project. They can be performed alone or with friends.
 
-Drills are a way to engage in deliberate practice to master a language.
-Challenges in Ruby Drills focus on a specific method.
-Answers typically consist of a single line.
-Your objective is to complete the drill with ease and joy, without consulting any external documentation.
+Challenges in Ruby Drills focus on a specific method. Answers typically consist of a single line. Your objective is to complete the drill with ease and joy, without consulting any external documentation. At first, you will most likely find this kind of practice neither easy nor joyful. Code on. Practice for a few days until your knowledge of these methods becomes automatic. Doing so will make your day to day programming more enjoyable by freeing up your mind to focus on higher-level, higher-value complexities than the syntax of the language.
 
-For example, a drill for the `Enumerable#zip` method could consist of the following:
+## Example
+
+A drill for the `Enumerable#zip` method could consist of the following:
 
     We have two arrays:
     a: [4, 5, 6]
@@ -36,6 +36,7 @@ Run:
 ## Usage
 
 Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms.
+
 Start by choosing an available drill from the menu.
 
     Arrays
@@ -45,7 +46,7 @@ Start by choosing an available drill from the menu.
 
 The drills will then walk you through one-line challeges that will allow you to demonstrate your mastery of the API.
 
-## Drill API
+## Under the Hood: The Drill API
 
 Each drill consists of five methods:
 

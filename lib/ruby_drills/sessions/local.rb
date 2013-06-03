@@ -42,6 +42,9 @@ module Sessions
     end
 
     def rfc822
+      # James Holderness
+      # http://tech.groups.yahoo.com/group/rss-public/message/536
+      # "Thu, 09 Feb 2006 23:59:45 +0000"
       Time.now.strftime('%a, %d %b %Y %H:%M:%S %z')
     end
 
