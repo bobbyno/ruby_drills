@@ -7,9 +7,23 @@ Scrimmages are used in sports to mimic the conditions and complexity of a game i
 
 Challenges in Ruby Drills focus on a specific method. Answers typically consist of a single line. Your objective is to complete the drill with ease and joy, without consulting any external documentation. At first, you will most likely find this kind of practice neither easy nor joyful. Code on. Practice for a few days until your knowledge of these methods becomes automatic. Doing so will make your day to day programming more enjoyable by freeing up your mind to focus on higher-level, higher-value complexities than the syntax of the language.
 
+## Getting Started
+
+Ruby Drills will eventually be released as a gem. While the project is in "open secret" mode, run it using bundler:
+
+    git clone git@github.com:bobbyno/ruby_drills.git
+    cd ruby_drills
+    bundle install
+    bundle exec bin/ruby_drills
+
+Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms.
+
+Start by choosing an available drill from the menu. The Enumerable drill currently has the most
+content, so start there.
+
 ## Example
 
-A drill for the `Enumerable#zip` method could consist of the following:
+A drill session for the `Enumerable#zip` method might consist of the following:
 
     We have two arrays:
     a: [4, 5, 6]
@@ -19,32 +33,30 @@ A drill for the `Enumerable#zip` method could consist of the following:
     a new array and merge the corresponding elements from a and b to yield
     [[1, 4, 7], [2, 5, 8], [3, 6, 9]]:
 
-    >> [1,2,3].zip(a, b)
+    >> c = [1,2,3]
+    => [1, 2, 3]
 
-    Nice one!
+        not yet...
+
+    >> c.zip(a, b)
+    => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+
+        !!! WIN !!!
+
+    How does your answer compare to the reference solution?
+    [1,2,3].zip(@a, @b)
+
+    Press any key to continue:
 
 ## Installation
 
-Ruby Drills are meant to be used as a standalone tool from the command line:
+Once we're out of 'open secret' mode, Ruby Drills are meant to be used as a standalone tool from the command line:
 
     $ gem install ruby_drills
 
 Run:
 
     $ ruby_drills
-
-## Usage
-
-Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms.
-
-Start by choosing an available drill from the menu.
-
-    Arrays
-    Hashes
-    Enumerable
-    Strings
-
-The drills will then walk you through one-line challeges that will allow you to demonstrate your mastery of the API.
 
 ## Under the Hood: The Drill API
 
@@ -60,18 +72,25 @@ reference: provide a reference solution as valid ruby code in string form. This 
 
 valid?(input): a validation function that returns true or false. Used to see if a user's input that matches the reference solution meets other constraints.
 
+## Data
+
+At the moment, drill session data is being saved to a PStore at `/usr/local/var/ruby_drills`. This will soon move to a web-based solution.
+
+## Credits
+
+* [Bobby Norton](http://twitter.com/bobbynorton).
+* Sarah Aslanifar at [Tested Minds](http://literate.ly)
+* The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
+* You?
+
 ## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Create passing specs
+3. Create passing specs or cukes (once we figure out the testing strategy)
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-## Credits
 
-* [Bobby Norton](http://twitter.com/bobbynorton)
-* Sarah Aslanifar at [Tested Minds](http://literate.ly)
-* The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
 
