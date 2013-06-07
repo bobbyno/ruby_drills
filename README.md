@@ -19,7 +19,7 @@ Ruby Drills will eventually be released as a gem. While the project is in "open 
 Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms.
 
 Start by choosing an available drill from the menu. The Enumerable drill currently has the most
-content, so start there.
+content, so start there!
 
 ## Example
 
@@ -97,7 +97,7 @@ If you're new to Github:
 
 ## Credits
 
-* [Bobby Norton](http://twitter.com/bobbynorton).
+* [Bobby Norton](http://twitter.com/bobbynorton)
 * Sarah Aslanifar at [Tested Minds](http://literate.ly)
 * The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
 * You?
