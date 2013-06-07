@@ -58,23 +58,42 @@ Run:
 
     $ ruby_drills
 
+## Data
+
+At the moment, drill session data is being saved to a PStore at `/usr/local/var/ruby_drills`. This will soon move to a web-based solution. Over time, we'll be able to analyze how people are practicing. This has the potential to lead to interesting research for the Ruby community about how people practice and learn. By using and contributing to Ruby Drills, you're contributing to science!
+
+## Community
+
+rubydrills.com is registered and will eventually link to summarized statistics about how much practice is getting done.
+
+Once we go public, we can set up a Google Group for discussion. At the moment, please send questions and feedback to bobby@testedminds.com.
+
 ## Under the Hood: The Drill API
 
 Each drill consists of five methods:
 
-setup: initialize instance variables used in the drill.
+`setup`: initialize instance variables used in the drill.
 
-show: puts a string that describes the drill.
+`show`: puts a string that describes the drill.
 
-hints: return an array of hints that will be randomly shown.
+`hints`: return an array of hints that will be randomly shown.
 
-reference: provide a reference solution as valid ruby code in string form. This will be eval'ed to determine if the user's input should be validated.
+`reference`: provide a reference solution as valid ruby code in string form. This will be eval'ed to determine if the user's input should be validated.
 
-valid?(input): a validation function that returns true or false. Used to see if a user's input that matches the reference solution meets other constraints.
+`valid?(input)`: a validation function that returns true or false. Used to see if a user's input that matches the reference solution meets other constraints.
 
-## Data
+## Contributing
 
-At the moment, drill session data is being saved to a PStore at `/usr/local/var/ruby_drills`. This will soon move to a web-based solution.
+Please check the [Issues List](http://github.com/bobbyno/ruby_drills/issues) on Github to find something to do.
+
+If you're new to Github:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Create passing specs or cukes (once we figure out the testing strategy)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
 
 ## Credits
 
@@ -82,15 +101,3 @@ At the moment, drill session data is being saved to a PStore at `/usr/local/var/
 * Sarah Aslanifar at [Tested Minds](http://literate.ly)
 * The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
 * You?
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Create passing specs or cukes (once we figure out the testing strategy)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create new Pull Request
-
-
-
