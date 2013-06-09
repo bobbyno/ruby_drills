@@ -44,7 +44,7 @@ module Commands
   end
 
   def hint
-    puts hints[rand(0...hints.size)]
+    puts hints.rotate!.last
     false
   end
 

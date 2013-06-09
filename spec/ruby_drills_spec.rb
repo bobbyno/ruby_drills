@@ -1,7 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "RubyDrills" do
-  it 'should have a version number' do
-    RubyDrills::VERSION.should_not be_nil
+  it "should have a version number" do
+    assert { RubyDrills::VERSION }
   end
 end

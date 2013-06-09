@@ -2,6 +2,8 @@ class AllNamesDrill < Drill
 
   def setup
     @names = %w[ Al Slartibartfast Aaron Yvonne Bobby ]
+    @hints = ["Your answer will look something like @names.xxxxx {|y| y.zzz > 4 }",
+              "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
   def show
@@ -15,11 +17,6 @@ to the given block and returns true if the block never
 returns false or nil.
 
 }
-  end
-
-  def hints
-    ["Your answer will look something like @names.xxxxx {|y| y.zzz > 4 }",
-     "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-all-3F"]
   end
 
   def reference
