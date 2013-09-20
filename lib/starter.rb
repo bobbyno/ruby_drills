@@ -46,7 +46,7 @@ class Starter
   end
 
   def drills
-    %w[welcome enumerable string array hash]
+    %w[welcome array string hash]
   end
 
 private
