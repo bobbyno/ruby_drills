@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.description   = "A deliberate practice tool for the core Ruby API's."
   gem.summary       = gem.description
   gem.homepage      = "http://rubydrills.com"
-  gem.license       = "MIT"
+  gem.license       = "Apache 2.0"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency("pry",  "0.9.12.1")
   gem.add_dependency("colorize", "0.5.8")
+  gem.add_dependency("httparty", "0.11.0")
 
   gem.add_development_dependency("rake", "10.0.4")
   gem.add_development_dependency("rspec", "~> 2.14.0.rc1")

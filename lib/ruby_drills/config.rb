@@ -1,7 +1,7 @@
 module RubyDrills
   class Config
 
-    SESSIONS = Sessions::Local.new
+    SESSIONS = Sessions::CollectorClient.new
 
     def self.pry_config
       Pry.config.pager = false

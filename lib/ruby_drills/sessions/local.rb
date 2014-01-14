@@ -16,7 +16,7 @@ module Sessions
       store({context: name, input: input, type: 'command'})
     end
 
-    def save(name, input, reference, result)
+    def attempt(name, input, reference, result)
       store({context: name, input: input, reference: reference, result: result, type: 'attempt'})
     end
 

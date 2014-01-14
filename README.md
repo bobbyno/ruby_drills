@@ -9,14 +9,10 @@ Challenges in Ruby Drills focus on a specific method. Answers typically consist 
 
 ## Getting Started
 
-Ruby Drills will eventually be released as a gem. While the project is in "open secret" mode, run it using bundler:
+    $ gem install ruby_drills
+    $ ruby_drills
 
-    git clone git@github.com:bobbyno/ruby_drills.git
-    cd ruby_drills
-    bundle install
-    bundle exec bin/ruby_drills
-
-Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms.
+Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms and a great complement to TDD.
 
 Start by choosing an available drill from the menu. The Enumerable drill currently has the most
 content, so start there!
@@ -48,11 +44,9 @@ A drill session for the `Enumerable#zip` method might consist of the following:
 
     Press any key to continue:
 
-## Installation
+## Community
 
-    $ gem install ruby_drills
-    $ ruby_drills
-
+Questions about Ruby Drills? Ideas about how to practice? Head over to the [Google Group](https://groups.google.com/forum/#!forum/ruby-drills).
 
 ## Analytics
 
@@ -77,10 +71,6 @@ We're interested in questions like:
 This data will help us evolve the Ruby Drills experience. This could also form the basis of a more personalized experience, allowing you to review your progress and compare your practice sessions to others. More on this to come as we analyze the data collected and share the results with the community.
 
 Ultimately, we'd like to find out if drill and practice in Ruby and other programming languages helps us solve more complex programming challenges. There is currently very little data available to researchers to help answer this question scientifically. Hopefully, the data collected in Ruby Drills can provide a piece of this puzzle.
-
-## Community
-
-Google Group:
 
 
 ## Under the Hood: The Drill API
