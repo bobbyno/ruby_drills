@@ -10,6 +10,7 @@ require 'ruby_drills/drill'
 require 'ruby_drills/drills'
 require 'ruby_drills/chomper'
 require 'ruby_drills/sessions/local'
+require 'ruby_drills/sessions/timestamp'
 require 'ruby_drills/config'
 
 class Starter

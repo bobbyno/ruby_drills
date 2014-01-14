@@ -36,16 +36,9 @@ module Sessions
 
     def store(entry)
       @db.transaction do
-        t = rfc822
-        @db[t.to_s] = entry.merge({ time: t })
+        t = Sessions::Timestamp.collector
+        @db[t] = entry.merge({ time: t })
       end
-    end
-
-    def rfc822
-      # James Holderness
-      # http://tech.groups.yahoo.com/group/rss-public/message/536
-      # "Thu, 09 Feb 2006 23:59:45 +0000"
-      Time.now.strftime('%a, %d %b %Y %H:%M:%S %z')
     end
 
   end

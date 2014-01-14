@@ -50,23 +50,38 @@ A drill session for the `Enumerable#zip` method might consist of the following:
 
 ## Installation
 
-Once we're out of 'open secret' mode, Ruby Drills are meant to be used as a standalone tool from the command line:
-
     $ gem install ruby_drills
-
-Run:
-
     $ ruby_drills
 
-## Data
 
-At the moment, drill session data is being saved to a PStore at `/usr/local/var/ruby_drills`. This will soon move to a web-based solution. Over time, we'll be able to analyze how people are practicing. This has the potential to lead to interesting research for the Ruby community about how people practice and learn. By using and contributing to Ruby Drills, you're contributing to science!
+## Analytics
+
+As you interact with Ruby Drills, your answers are being saved in a remote Drill Collector API hosted by Tested Minds. No personally identifiable information is included in this data: At this time, we are interested in overall practice patterns and statistics, not individual user profiles. Activity data looks like:
+
+    {
+    "timestamp" : "May 5, 2013 12:03:51 AM CST",
+    "result" : "pass",
+    "input" : "@numbers.partition{|x | x.even?  }",
+    "sessionId" : "2217-47e8-b80a-68b81c980c32",
+    "drill" : "PartitionDrill",
+    "type" : "attempt",
+    "reference" : "@numbers.partition {|x| x.even? }"
+    }
+
+We're interested in questions like:
+
+* Which drills are practiced most frequently?
+* How long do people typically practice in a given session?
+* What are the patterns behind an effective drill vs. one that is too easy or too hard?
+
+This data will help us evolve the Ruby Drills experience. This could also form the basis of a more personalized experience, allowing you to review your progress and compare your practice sessions to others. More on this to come as we analyze the data collected and share the results with the community.
+
+Ultimately, we'd like to find out if drill and practice in Ruby and other programming languages helps us solve more complex programming challenges. There is currently very little data available to researchers to help answer this question scientifically. Hopefully, the data collected in Ruby Drills can provide a piece of this puzzle.
 
 ## Community
 
-rubydrills.com is registered and will eventually link to summarized statistics about how much practice is getting done.
+Google Group:
 
-Once we go public, we can set up a Google Group for discussion. At the moment, please send questions and feedback to bobby@testedminds.com.
 
 ## Under the Hood: The Drill API
 
@@ -95,9 +110,15 @@ If you're new to Github:
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-## Credits
+## Contributors
 
 * [Bobby Norton](http://twitter.com/bobbynorton)
-* Sarah Aslanifar at [Tested Minds](http://literate.ly)
-* The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013
-* You?
+* David Chelimsky
+
+## Acknowledgments
+
+* Sarah Aslanifar at [Tested Minds](http://literate.ly) for early review and feedback.
+* The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013 for inspiring the project in the first place.
+* Erik Allar for endless encouragement and enthusiasm.
+* Bill Van Der Laan and Rod Levy: The first UX testers
+* Tiffany Mikell and Torey Hickman for feedback on how to incorporate Ruby Drills into the Dev Bootcamp curriculum.
