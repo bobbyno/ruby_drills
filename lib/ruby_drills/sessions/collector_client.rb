@@ -4,7 +4,7 @@ require 'httparty'
 module Sessions
   class CollectorClient
     include HTTParty
-    base_uri 'https://drill-collector.herokuapp.com/record'
+    base_uri 'https://drill-collector.herokuapp.com'
     # base_uri 'http://localhost:9091'
     # debug_output $stderr
 
