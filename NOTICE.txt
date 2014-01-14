@@ -1,0 +1,11 @@
+=============================================================================
+==  NOTICE file for use with the Apache License, Version 2.0,              ==
+==  in this case for the Ruby Drills distribution.                         ==
+=============================================================================
+
+Ruby Drills
+
+This product includes software developed by
+Bobby Norton (bobby@testedminds.com)
+
+For additional credits see the Acknowledgments in the project README.

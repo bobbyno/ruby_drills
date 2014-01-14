@@ -112,13 +112,17 @@ If you're new to Github:
 
 ## Contributors
 
-* [Bobby Norton](http://twitter.com/bobbynorton)
-* David Chelimsky
+* [Bobby Norton](https://twitter.com/bobbynorton)
+* [David Chelimsky](https://twitter.com/dchelimsky)
 
 ## Acknowledgments
 
 * Sarah Aslanifar at [Tested Minds](http://literate.ly) for early review and feedback.
 * The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013 for inspiring the project in the first place.
-* Erik Allar for endless encouragement and enthusiasm.
-* Bill Van Der Laan and Rod Levy: The first UX testers
-* Tiffany Mikell and Torey Hickman for feedback on how to incorporate Ruby Drills into the Dev Bootcamp curriculum.
+* [Erik Allar](https://twitter.com/allareri) for endless encouragement and enthusiasm.
+* [Bill Van Der Laan](https://twitter.com/Vanderln) and Rod Levy: The first UX testers
+* [Tiffany Mikell](https://twitter.com/mikellsolution) and [Torey Hickman](https://twitter.com/toreyhickman) for feedback on how to incorporate Ruby Drills into the Dev Bootcamp curriculum.
+
+## License
+
+Ruby Drills is licensed under the Apache License, version 2.0. See the enclosed LICENSE.txt and NOTICE.txt for more information.
