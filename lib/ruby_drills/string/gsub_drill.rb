@@ -3,14 +3,14 @@ class GsubDrill < Drill
   def setup
     @values = "make?this?a?real?sentence"
     @hints = ["you need to substitute all of the question marks globally",
-                  "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-gsub"]
+              "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-gsub"]
   end
 
   def show
     puts %{
 @values = #{@values.inspect}
 
- Nondestructively replace all occurrences of question marks and replace them with a space.
+Non-destructively replace all occurrences of question marks and replace them with a space.
 
 }
   end
@@ -20,7 +20,7 @@ class GsubDrill < Drill
   end
 
   def valid?(input)
-    input.include?("gsub")
+    non!("gsub", input)
   end
 
 end

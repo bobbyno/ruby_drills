@@ -16,6 +16,15 @@ class Drill
     eval(reference)
   end
 
+  def non!(method, input)
+    if (input.include?('!'))
+      puts "\n\tAvoid using ! methods that modify their receiver...".red
+      return false
+    end
+
+    input.include?(method)
+  end
+
   def done?(input)
     case input.to_sym
     when :menu

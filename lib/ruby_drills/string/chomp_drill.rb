@@ -3,7 +3,7 @@ class ChompDrill < Drill
   def setup
     @value = "Blueberry"
     @hints = ["Would not be a very big bite, but go ahead and take one.",
-                  "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-chomp"]
+              "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-chomp"]
   end
 
   def show
@@ -12,7 +12,7 @@ class ChompDrill < Drill
 
 Make this delectable berry read as just its color!
 
-Use the method that will remove 'berry' from the end of this string and return 'blue':
+Use the method that will remove 'berry' from the end of this string and return 'Blue':
 }
   end
 
@@ -21,7 +21,7 @@ Use the method that will remove 'berry' from the end of this string and return '
   end
 
   def valid?(input)
-    input.include?("chomp")
+    non!("chomp", input)
   end
 
 end

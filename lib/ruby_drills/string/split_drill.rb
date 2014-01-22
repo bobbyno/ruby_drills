@@ -4,8 +4,8 @@ class SplitDrill < Drill
     @words = %{under
 the
 ocean}
-    @hints = ["Use the '\n' char as the splitting point.",
-                  "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-split"]
+    @hints = ["Use the '\n' char as the splitting point. You might need double quotes, though...",
+              "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-split"]
   end
 
   def show
@@ -14,7 +14,7 @@ ocean}
 
 Take each line and make it the member of an array.
 
-Use the method that will break up the string by the new line character, 
+Use the method that will break up the string by the new line character,
 and returns an array with each line as a member:
 }
   end
@@ -24,6 +24,6 @@ and returns an array with each line as a member:
   end
 
   def valid?(input)
-    input.include?("split")
+    non!("split", input)
   end
 end
