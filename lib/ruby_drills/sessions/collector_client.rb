@@ -26,13 +26,11 @@ module Sessions
  private
 
     def store(entry)
-      Thread.new do
-        begin
-          data = entry.merge(timestamp: Sessions::Timestamp.collector, session_id: @session_id)
-          self.class.post('/record', {:body => data})
-        rescue => e
-          # silent scream for now...
-        end
+      begin
+        data = entry.merge(timestamp: Sessions::Timestamp.collector, session_id: @session_id)
+        self.class.post('/record', {:body => data})
+      rescue => e
+        # silent scream for now...
       end
     end
 
