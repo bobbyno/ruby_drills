@@ -39,7 +39,6 @@ class Starter
 
       puts "\nWhat would you like to learn next?\n\n"
       options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
-      puts "\n\ts: see your stats"
       puts "\tq: quit"
 
       choice = Readline.readline("\n>> ", true)
