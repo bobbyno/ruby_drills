@@ -1,7 +1,7 @@
 class SplitDrill < Drill
 
   def setup
-    @values = %{under
+    @words = %{under
 the
 ocean}
     @hints = ["Use the '\n' char as the splitting point.",
@@ -10,7 +10,7 @@ ocean}
 
   def show
     puts %{
-@values = #{@values.inspect}
+@words = #{@words.inspect}
 
 Take each line and make it the member of an array.
 
@@ -20,7 +20,7 @@ and returns an array with each line as a member:
   end
 
   def reference
-    "@values.split('\n')"
+    "@words.split('\n')"
   end
 
   def valid?(input)

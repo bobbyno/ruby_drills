@@ -1,24 +1,25 @@
 class SqueezeDrill < Drill
 
   def setup
-    @values = %{Mississippi}
+    @value = %{Mississippi}
     @hints = ["how do you get toothpaste out of the tube.",
     "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-squeeze"]
   end
 
   def show
     puts %{
-@values = #{@values.inspect}
+@value = #{@value.inspect}
 
 Remove all of the repeating characters from Mississippi,
-leaving only one instance of each: 
+leaving only one instance of each.
+Your output should be 'Misisipi' 
 }
   end
 
 
 
   def reference
-    "@values.squeeze"
+    "@value.squeeze"
   end
 
   def valid?(input)

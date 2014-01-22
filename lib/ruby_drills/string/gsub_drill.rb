@@ -2,7 +2,7 @@ class GsubDrill < Drill
 
   def setup
     @values = "make?this?a?real?sentence"
-    @hints = ["you need to substitute all of the question marks",
+    @hints = ["you need to substitute all of the question marks globally",
                   "http://www.ruby-doc.org/core-1.9.3/String.html#method-i-gsub"]
   end
 
