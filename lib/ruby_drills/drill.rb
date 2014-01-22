@@ -19,6 +19,9 @@ class Drill
   def non!(method, input)
     if (input.include?('!'))
       puts "\n\tAvoid using ! methods that modify their receiver...".red
+      # We need to rerun setup since the user changed the state of
+      # the drill.
+      setup
       return false
     end
 

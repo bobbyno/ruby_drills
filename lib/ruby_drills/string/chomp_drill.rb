@@ -12,7 +12,8 @@ class ChompDrill < Drill
 
 Make this delectable berry read as just its color!
 
-Use the method that will remove 'berry' from the end of this string and return 'Blue':
+Use the method that will remove 'berry' from the end of this string
+and return #{expected.inspect}:
 }
   end
 

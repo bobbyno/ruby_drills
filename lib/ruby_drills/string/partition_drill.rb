@@ -11,9 +11,7 @@ class PartitionDrill < Drill
 @sentence = #{@sentence.inspect}
 
 Break this sentence into a three-member array with a method that will use 'or'
-as the substring to match against.
-
-Your output should be ['Half full ', 'or', ' half empty?']:
+as the substring to match against to produce #{expected.inspect}:
 
 }
   end

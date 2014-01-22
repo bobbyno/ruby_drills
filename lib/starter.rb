@@ -10,6 +10,7 @@ require 'ruby_drills/drill'
 require 'ruby_drills/drills'
 require 'ruby_drills/chomper'
 require 'ruby_drills/sessions/collector_client'
+require 'ruby_drills/sessions/local'
 require 'ruby_drills/sessions/timestamp'
 require 'ruby_drills/config'
 
@@ -39,7 +40,7 @@ class Starter
 
       puts "\nWhat would you like to learn next?\n\n"
       options.each_with_index {|opt, i| puts "\t#{i}: #{opt.capitalize}"}
-      puts "\tq: quit"
+      puts "\n\tq: quit"
 
       choice = Readline.readline("\n>> ", true)
     end

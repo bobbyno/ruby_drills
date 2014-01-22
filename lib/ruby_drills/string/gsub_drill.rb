@@ -10,7 +10,8 @@ class GsubDrill < Drill
     puts %{
 @values = #{@values.inspect}
 
-Non-destructively replace all occurrences of question marks and replace them with a space.
+Non-destructively replace all occurrences of question marks and replace them with a space
+to return #{expected.inspect}.
 
 }
   end

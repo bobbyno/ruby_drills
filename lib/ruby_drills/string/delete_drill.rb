@@ -12,7 +12,8 @@ class DeleteDrill < Drill
 
 Remove 'bob' from this string in order to return a much tamer version.
 
-Use a non-destructive method to remove 'bob' from this string and return 'cat':
+Use a non-destructive method to remove 'bob' from this string and return
+#{expected.inspect}:
 }
   end
 

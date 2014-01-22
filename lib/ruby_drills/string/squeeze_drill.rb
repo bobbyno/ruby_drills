@@ -11,8 +11,8 @@ class SqueezeDrill < Drill
 @value = #{@value.inspect}
 
 Remove all of the repeating characters from Mississippi,
-leaving only one instance of each.
-Your output should be 'Misisipi'
+leaving only one instance of each, to product #{expected.inspect}.
+
 }
   end
 

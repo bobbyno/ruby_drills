@@ -9,7 +9,8 @@ class ToSymDrill < Drill
     puts %{
 @value = #{@value.inspect}
 
-Take this string and turn it into a symbol. The output should be ':mouse':
+Take this string and turn it into a symbol. The output should be
+#{expected.inspect}:
 }
   end
 
