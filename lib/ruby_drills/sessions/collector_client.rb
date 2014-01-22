@@ -7,6 +7,7 @@ module Sessions
     base_uri 'https://drill-collector.herokuapp.com'
     # base_uri 'http://localhost:9091'
     # debug_output $stderr
+    default_timeout 2 #seconds
 
     attr_reader :session_id
 

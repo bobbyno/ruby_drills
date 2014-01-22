@@ -2,7 +2,7 @@ class MapDrill < Drill
 
   def setup
     @numbers = (0..10).to_a
-    @hints = ["You want to divide each member of this collection by two..."
+    @hints = ["You want to divide each member of this collection by two...",
               "http://ruby-doc.org/core-1.9.3/Enumerable.html#method-i-map"]
   end
 
