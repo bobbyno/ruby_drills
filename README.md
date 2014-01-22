@@ -89,7 +89,7 @@ Each drill consists of five methods:
 
 ## Contributing
 
-Please check the [Issues List](http://github.com/bobbyno/ruby_drills/issues) on Github to find something to do.
+It's easy to get involved by creating new drills. Please check the [Issues List](http://github.com/bobbyno/ruby_drills/issues) on Github to find something to do.
 
 If you're new to Github:
 
@@ -104,6 +104,7 @@ If you're new to Github:
 
 * [Bobby Norton](https://twitter.com/bobbynorton)
 * [David Chelimsky](https://twitter.com/dchelimsky)
+* [Joe Shidel](https://github.com/shidel-dev)
 
 ## Acknowledgments
 
