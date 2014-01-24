@@ -12,7 +12,7 @@ Challenges in Ruby Drills focus on a specific method. Answers typically consist 
     $ gem install ruby_drills
     $ ruby_drills
 
-Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out langauge features or algorithms and a great complement to TDD.
+Drills run in the command line. You answer questions in drills using a REPL. This practice has the benefit of preparing you for developing at the REPL, a useful technique for trying out language features or algorithms and a great complement to TDD.
 
 Start by choosing an available drill from the menu. The Enumerable drill currently has the most
 content, so start there!
