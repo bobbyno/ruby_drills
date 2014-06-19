@@ -11,12 +11,13 @@ class MergeDrill < Drill
 @mismatched_animals: #{@mismatched_animals.inspect}
 @matched_animals: #{@matched_animals.inspect}
 
+Create a hash with properly matched key/pair values of animals and sounds:
+#{expected.inspect}
+
 Use the Hash method that will return a new hash with non-duplicate keys of
 the first and second collectively. If the method uses a block it will
-specify how to handle duplicate keys. Apply this to have a hash with
-properly matched key/pair values of animals and sounds.
-#{expected.inspect}:
-    }
+specify how to handle duplicate keys:
+}
   end
 
   def reference

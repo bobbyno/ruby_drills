@@ -9,11 +9,12 @@ class GroupByDrill < Drill
     puts %{We have one hash:
 @mario_bros: #{@mario_bros.inspect}
 
+Organize the Mario Bros by their personality:
+#{expected.inspect}
+
 Use the Enumerable method that will return a hash of key/value pairs where the keys values and the
-values are an array of key/value pairs. The resulting hash should organize the Mario Bros by their
-personality!
-#{expected.inspect}:
-    }
+values are an array of key/value pairs.
+}
   end
 
   def reference
