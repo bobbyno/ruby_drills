@@ -75,13 +75,11 @@ Ultimately, we'd like to find out if drill and practice in Ruby and other progra
 
 ## Under the Hood: The Drill API
 
-Each drill consists of five methods:
+Each drill consists of four methods:
 
-`setup`: initialize instance variables used in the drill.
+`setup`: initialize instance variables used in the drill, including `@hints`, an array of hints that can guide the user towards the answer.
 
 `show`: puts a string that describes the drill.
-
-`hints`: return an array of hints that will be randomly shown.
 
 `reference`: provide a reference solution as valid ruby code in string form. This will be eval'ed to determine if the user's input should be validated.
 
@@ -105,8 +103,12 @@ If you're new to Github:
 * [Bobby Norton](https://twitter.com/bobbynorton)
 * [David Chelimsky](https://twitter.com/dchelimsky)
 * [Joe Shidel](https://github.com/shidel-dev)
+* [Katrina Owen](https://github.com/kytrinyx)
+* [Lorena Nicole](https://github.com/lorenanicole)
 
 ## Acknowledgments
+
+Thanks go to the contributors and to these outstanding individuals for making Ruby Drills possible:
 
 * Sarah Aslanifar at [Tested Minds](http://literate.ly) for early review and feedback.
 * The inaugural Chicago [Dev Bootcamp](http://devbootcamp.com) class of June 2013 for inspiring the project in the first place.
