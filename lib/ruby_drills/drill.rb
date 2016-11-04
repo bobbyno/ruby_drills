@@ -53,11 +53,10 @@ private
   def check_answer(input)
     begin
       Pry.run_command input, :context => @context, :output =>  answer = StringIO.new
-      Pry.run_command reference, :context => @context, :output => exp = StringIO.new
 
       puts answer.string
 
-      return fail(input) if answer.string != exp.string
+      return fail(input) if eval(input, @context) != eval(reference, @context)
       return false if !comparable_answer?(input)
       win(input)
     rescue SyntaxError => ex
