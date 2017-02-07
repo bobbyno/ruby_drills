@@ -21,7 +21,7 @@ elements for which the given block returns a true value.
   end
 
   def reference
-    "values.select {|x| x % 3 == 0}"
+    "@values.select {|x| x % 3 == 0}"
   end
 
   def valid?(input)
