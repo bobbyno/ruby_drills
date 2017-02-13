@@ -47,7 +47,7 @@ class Starter
   end
 
   def drills
-    %w[welcome array string hash]
+    %w[welcome array hash set string]
   end
 
 private
