@@ -3,7 +3,7 @@ class DeleteDrill < Drill
   def setup
     @values = [ "a", "b", "b", "b", "c" ]
     @hints = ["It's the method you think it is!",
-                  "https://ruby-doc.org/core-2.3.0/Array.html#method-i-delete"]
+              "https://ruby-doc.org/core-2.3.0/Array.html#method-i-delete"]
   end
 
   def show
